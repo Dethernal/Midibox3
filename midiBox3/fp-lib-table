@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name Connector_DragonCity)(type KiCad)(uri ${KIPRJMOD}/Connector_DragonCity.pretty)(options "")(descr ""))
+  (lib (name connectors-ootdty)(type KiCad)(uri ${KIPRJMOD}/connectors-ootdty.pretty)(options "")(descr ""))
+  (lib (name rotary_encoder_bourns)(type KiCad)(uri ${KIPRJMOD}/rotary_encoder_bourns.pretty)(options "")(descr ""))
+)
