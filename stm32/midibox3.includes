@@ -1,0 +1,14 @@
+Drivers/CMSIS/Device/ST/STM32F1xx/Include
+Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/ARM
+Drivers/CMSIS/DSP_Lib/Examples/arm_convolution_example/GCC
+Drivers/CMSIS/DSP_Lib/Examples/arm_fir_example/ARM
+Drivers/CMSIS/DSP_Lib/Examples/arm_graphic_equalizer_example/ARM
+Drivers/CMSIS/DSP_Lib/Examples/arm_linear_interp_example/ARM
+Drivers/CMSIS/DSP_Lib/Examples/arm_matrix_example/ARM
+Drivers/CMSIS/DSP_Lib/Examples/arm_signal_converge_example/ARM
+Drivers/CMSIS/Include
+Drivers/CMSIS/RTOS/Template
+Drivers/STM32F1xx_HAL_Driver/Inc
+Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
+Inc
+Src
