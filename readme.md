@@ -4,7 +4,7 @@ My attempt to make new Waveblaster-compatible interface board.
 
 ## Features
 
-* Work with all current loop MIDI source (broken right now)
+* Work with all current loop MIDI source
 * Built in hard mpu (not implemented)
 * Additional Note On volume control with rotary encoder (not implemented)
 * Can work without microcontroller as simple interface board but other features will gone.
