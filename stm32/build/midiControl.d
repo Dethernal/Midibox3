@@ -1,4 +1,4 @@
-build/stm32f1xx_it.o: Src/stm32f1xx_it.c Inc/main.h \
+build/midiControl.o: Src/midiControl.c Inc/midiControl.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h \
  Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h \
  Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h \
@@ -14,10 +14,9 @@ build/stm32f1xx_it.o: Src/stm32f1xx_it.c Inc/main.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_dma.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h \
- Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h Inc/stm32f1xx_it.h \
- Inc/midiControl.h
+ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h
 
-Inc/main.h:
+Inc/midiControl.h:
 
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h:
 
@@ -54,7 +53,3 @@ Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_tim.h:
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h:
 
 Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h:
-
-Inc/stm32f1xx_it.h:
-
-Inc/midiControl.h:

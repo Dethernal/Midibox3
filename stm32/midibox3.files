@@ -542,10 +542,13 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usb.c
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
 Inc/main.h
+Inc/midiControl.h
 Inc/stm32f1xx_hal_conf.h
 Inc/stm32f1xx_it.h
 Src/main.c
+Src/midiControl.c
 Src/stm32f1xx_hal_msp.c
 Src/stm32f1xx_it.c
 Src/system_stm32f1xx.c
 Makefile
+startup_stm32f103xb.s

@@ -110,7 +110,7 @@ int main(void)
     MX_NVIC_Init();
     /* USER CODE BEGIN 2 */
 
-
+    //LL_GPIO_ResetOutputPin(MIDI_WB_CON_GPIO_Port, MIDI_WB_CON_Pin);
     LL_GPIO_ResetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
     /* USER CODE END 2 */
 
@@ -125,8 +125,13 @@ int main(void)
     }
     LL_GPIO_SetOutputPin(MIDI_OUT_CON_GPIO_Port, MIDI_OUT_CON_Pin);
     LL_GPIO_SetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
-    LL_GPIO_SetOutputPin(MIDI_WB_CON_GPIO_Port, MIDI_WB_CON_Pin);
+    LL_GPIO_ResetOutputPin(MIDI_WB_CON_GPIO_Port, MIDI_WB_CON_Pin);
 
+    //NVIC_ClearPendingIRQ(TIM2_IRQn);
+    //LL_TIM_EnableCounter(TIM2);
+    LL_USART_EnableIT_TXE(USART1);
+    LL_USART_EnableIT_RXNE(USART1);
+    NVIC_ClearPendingIRQ(USART1_IRQn);
     while (1)
     {
         /* USER CODE END WHILE */
@@ -255,7 +260,7 @@ static void MX_USART1_UART_Init(void)
     GPIO_InitStruct.Pin = TX1_Pin;
     GPIO_InitStruct.Mode = LL_GPIO_MODE_ALTERNATE;
     GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
+    GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
     LL_GPIO_Init(TX1_GPIO_Port, &GPIO_InitStruct);
 
     GPIO_InitStruct.Pin = RX1_Pin;

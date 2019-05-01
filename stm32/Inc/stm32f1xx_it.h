@@ -29,6 +29,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "midiControl.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

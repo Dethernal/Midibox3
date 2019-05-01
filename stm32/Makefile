@@ -46,7 +46,8 @@ Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_tim.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_dma.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c \
 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_rcc.c \
-Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c
+Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_utils.c \
+Src/midiControl.c
 
 # ASM sources
 ASM_SOURCES =  \
