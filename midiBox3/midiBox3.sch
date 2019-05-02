@@ -201,79 +201,34 @@ Text Label 7300 1800 2    50   ~ 0
 $Comp
 L Device:R R1
 U 1 1 5C6AA2A1
-P 1700 3200
-F 0 "R1" V 1490 3200 50  0000 C CNN
-F 1 "510R" V 1583 3200 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1630 3200 50  0001 C CNN
-F 3 "~" H 1700 3200 50  0001 C CNN
-	1    1700 3200
+P 1700 3100
+F 0 "R1" V 1490 3100 50  0000 C CNN
+F 1 "510R" V 1583 3100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1630 3100 50  0001 C CNN
+F 3 "~" H 1700 3100 50  0001 C CNN
+	1    1700 3100
 	0    1    1    0   
 $EndComp
 $Comp
 L Device:D D1
 U 1 1 5C6ABD6E
-P 1850 3550
-F 0 "D1" V 1803 3629 50  0000 L CNN
-F 1 "1N4148" V 1896 3629 50  0000 L CNN
-F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 1850 3550 50  0001 C CNN
-F 3 "~" H 1850 3550 50  0001 C CNN
-	1    1850 3550
+P 1850 3450
+F 0 "D1" V 1803 3529 50  0000 L CNN
+F 1 "1N4148" V 1896 3529 50  0000 L CNN
+F 2 "Diode_SMD:D_SOD-323_HandSoldering" H 1850 3450 50  0001 C CNN
+F 3 "~" H 1850 3450 50  0001 C CNN
+	1    1850 3450
 	0    1    1    0   
 $EndComp
-$Comp
-L Isolator:PC817 U2
-U 1 1 5C6B00B0
-P 2700 3550
-F 0 "U2" H 2700 3881 50  0000 C CNN
-F 1 "PC817" H 2700 3788 50  0000 C CNN
-F 2 "Package_DIP:DIP-4_W7.62mm_LongPads" H 2500 3350 50  0001 L CIN
-F 3 "http://www.soselectronic.cz/a_info/resource/d/pc817.pdf" H 2700 3550 50  0001 L CNN
-	1    2700 3550
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	1850 3200 1850 3400
+	1850 3100 1850 3300
 Wire Wire Line
-	2400 3450 2300 3450
+	2300 3100 1850 3100
+Connection ~ 1850 3100
 Wire Wire Line
-	2300 3450 2300 3200
+	2300 3700 1850 3700
 Wire Wire Line
-	2300 3200 1850 3200
-Connection ~ 1850 3200
-Wire Wire Line
-	2400 3650 2300 3650
-Wire Wire Line
-	2300 3650 2300 3800
-Wire Wire Line
-	2300 3800 1850 3800
-Wire Wire Line
-	1850 3700 1850 3800
-$Comp
-L power:+5V #PWR07
-U 1 1 5C6B6FC1
-P 3750 3000
-F 0 "#PWR07" H 3750 2850 50  0001 C CNN
-F 1 "+5V" H 3765 3177 50  0000 C CNN
-F 2 "" H 3750 3000 50  0001 C CNN
-F 3 "" H 3750 3000 50  0001 C CNN
-	1    3750 3000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R2
-U 1 1 5C6B70D0
-P 3750 3200
-F 0 "R2" H 3900 3150 50  0000 R CNN
-F 1 "430R ±5%" H 4200 3250 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3680 3200 50  0001 C CNN
-F 3 "~" H 3750 3200 50  0001 C CNN
-	1    3750 3200
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	3750 3000 3750 3050
-Wire Wire Line
-	3000 3650 3300 3650
+	1850 3600 1850 3700
 $Comp
 L power:+5V #PWR018
 U 1 1 5C6C73AD
@@ -595,7 +550,7 @@ Text Notes 4100 3850 0    50   ~ 0
 MIDI THRU/OUT
 Wire Notes Line
 	3850 3900 900  3900
-Text Notes 950  3850 0    50   ~ 0
+Text Notes 950  3750 0    50   ~ 0
 MIDI IN
 Text Notes 5600 8850 0    50   ~ 0
 LINE OUT
@@ -838,12 +793,12 @@ $EndComp
 $Comp
 L power:GNDD #PWR08
 U 1 1 5CB93233
-P 3300 3650
-F 0 "#PWR08" H 3300 3400 50  0001 C CNN
-F 1 "GNDD" H 3305 3494 50  0000 C CNN
-F 2 "" H 3300 3650 50  0001 C CNN
-F 3 "" H 3300 3650 50  0001 C CNN
-	1    3300 3650
+P 2700 3650
+F 0 "#PWR08" H 2700 3400 50  0001 C CNN
+F 1 "GNDD" H 2850 3550 50  0000 C CNN
+F 2 "" H 2700 3650 50  0001 C CNN
+F 3 "" H 2700 3650 50  0001 C CNN
+	1    2700 3650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -871,12 +826,12 @@ Wire Wire Line
 Wire Wire Line
 	6400 5100 6500 5100
 Wire Wire Line
-	1450 3200 1550 3200
+	1450 3100 1550 3100
 Wire Wire Line
-	1450 3800 1850 3800
-Connection ~ 1850 3800
-NoConn ~ 1350 3200
-NoConn ~ 1350 3800
+	1450 3700 1850 3700
+Connection ~ 1850 3700
+NoConn ~ 1350 3100
+NoConn ~ 1350 3700
 Wire Wire Line
 	6700 2950 6400 2950
 Wire Wire Line
@@ -949,15 +904,15 @@ $EndComp
 $Comp
 L Connector:DIN-5_180degree J2
 U 1 1 5CA92CE7
-P 1350 3500
-F 0 "J2" V 1303 3271 50  0000 R CNN
-F 1 "DIN5 IN" V 1550 3400 50  0000 R CNN
-F 2 "connectors-ootdty:DS-5-01" H 1350 3500 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 1350 3500 50  0001 C CNN
-	1    1350 3500
+P 1350 3400
+F 0 "J2" V 1303 3171 50  0000 R CNN
+F 1 "DIN5 IN" V 1550 3300 50  0000 R CNN
+F 2 "connectors-ootdty:DS-5-01" H 1350 3400 50  0001 C CNN
+F 3 "http://www.mouser.com/ds/2/18/40_c091_abd_e-75918.pdf" H 1350 3400 50  0001 C CNN
+	1    1350 3400
 	0    1    -1   0   
 $EndComp
-NoConn ~ 1650 3500
+NoConn ~ 1650 3400
 Text Label 5300 600  0    50   ~ 0
 +12NF
 Text Label 5300 1300 0    50   ~ 0
@@ -1787,7 +1742,7 @@ Text Label 4650 2600 3    50   ~ 0
 MIDI_OUT_CON
 NoConn ~ 3400 7450
 NoConn ~ 3400 7550
-Text Label 3000 3450 0    50   ~ 0
+Text Label 3000 3350 0    50   ~ 0
 MIDI_IN
 Text Label 4900 7050 2    50   ~ 0
 MIDI_IN
@@ -1797,9 +1752,9 @@ Wire Notes Line
 	7950 7500 5550 7500
 Wire Notes Line
 	5550 8900 7950 8900
-Text Label 2200 3800 2    50   ~ 0
+Text Label 2200 3700 2    50   ~ 0
 MIDI_N
-Text Label 2200 3200 2    50   ~ 0
+Text Label 2200 3100 2    50   ~ 0
 MIDI_P
 $Comp
 L Device:C C28
@@ -2295,16 +2250,7 @@ F 3 "" H 950 2050 50  0001 C CNN
 	1    950  2050
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	3950 3450 3950 3650
 Connection ~ 3950 3650
-Wire Wire Line
-	3750 3350 3750 3450
-Connection ~ 3750 3450
-Wire Wire Line
-	3750 3450 3950 3450
-Wire Wire Line
-	3000 3450 3750 3450
 Wire Notes Line
 	3850 3900 3850 2750
 Wire Notes Line
@@ -2993,4 +2939,65 @@ Wire Wire Line
 Connection ~ 1600 6150
 Wire Wire Line
 	1600 6150 1350 6150
+$Comp
+L Isolator:H11L1 U2
+U 1 1 5D7B8CB5
+P 2700 3350
+F 0 "U2" H 2800 3600 50  0000 L CNN
+F 1 "H11L1" H 2750 3100 50  0000 L CNN
+F 2 "Package_DIP:DIP-6_W7.62mm_LongPads" H 2610 3350 50  0001 C CNN
+F 3 "https://www.fairchildsemi.com/datasheets/H1/H11L1M.pdf" H 2610 3350 50  0001 C CNN
+	1    2700 3350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2400 3250 2300 3250
+Wire Wire Line
+	2300 3250 2300 3100
+Wire Wire Line
+	2300 3450 2400 3450
+Wire Wire Line
+	2300 3450 2300 3700
+$Comp
+L power:+5V #PWR0116
+U 1 1 5D82796B
+P 2700 3050
+F 0 "#PWR0116" H 2700 2900 50  0001 C CNN
+F 1 "+5V" H 2715 3227 50  0000 C CNN
+F 2 "" H 2700 3050 50  0001 C CNN
+F 3 "" H 2700 3050 50  0001 C CNN
+	1    2700 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3350 3950 3650
+$Comp
+L power:+5V #PWR?
+U 1 1 5D8CBD45
+P 3500 3000
+F 0 "#PWR?" H 3500 2850 50  0001 C CNN
+F 1 "+5V" H 3515 3177 50  0000 C CNN
+F 2 "" H 3500 3000 50  0001 C CNN
+F 3 "" H 3500 3000 50  0001 C CNN
+	1    3500 3000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5D8CBE38
+P 3500 3150
+F 0 "R2" H 3400 3100 50  0000 C CNN
+F 1 "270R" H 3350 3200 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3430 3150 50  0001 C CNN
+F 3 "~" H 3500 3150 50  0001 C CNN
+	1    3500 3150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3000 3350 3500 3350
+Wire Wire Line
+	3500 3300 3500 3350
+Connection ~ 3500 3350
+Wire Wire Line
+	3500 3350 3950 3350
 $EndSCHEMATC
