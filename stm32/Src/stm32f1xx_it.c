@@ -203,7 +203,9 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-    LL_mDelay(10);
+    PIC_Update(true);
+
+    NVIC_ClearPendingIRQ(TIM2_IRQn);
   /* USER CODE END TIM2_IRQn 0 */
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
@@ -216,36 +218,16 @@ void TIM2_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-    uint8_t data;
-    char send_data = 0;
-    if (LL_USART_IsActiveFlag_RXNE(USART1)) {
-            data = LL_USART_ReceiveData8(USART1);
-            send_data = 1;
-            //LL_USART_ClearFlag_RXNE(USART1);
-            midiRxBufferEndIndex += 1;
-            midiRxBuffer[midiRxBufferEndIndex] = data;
-            if (midiRxBufferEndIndex >= MIDIRXBUFFER_SIZE) {
-                midiRxBufferEndIndex = 0;
-            }
-        }
-    if (LL_USART_IsActiveFlag_TC(USART1) || send_data) {
-        if (midiRxBufferStartIndex != midiRxBufferEndIndex) {
-            data = midiRxBuffer[midiRxBufferStartIndex];
-            midiRxBufferStartIndex += 1;
-            if (midiRxBufferStartIndex >= MIDIRXBUFFER_SIZE) {
-                midiRxBufferStartIndex = 0;
-            }
-            LL_USART_TransmitData8(USART1, data);
-        }
-    }
+
     NVIC_ClearPendingIRQ(USART1_IRQn);
+    
+    // 
 
   /* USER CODE END USART1_IRQn 0 */
   /* USER CODE BEGIN USART1_IRQn 1 */
 
   /* USER CODE END USART1_IRQn 1 */
 }
-
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */

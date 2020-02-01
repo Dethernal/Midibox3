@@ -121,6 +121,9 @@ void Error_Handler(void);
 #endif
 /* USER CODE BEGIN Private defines */
 
+#define INTERNAL_USART USART1
+#define EXTERNAL_USART USART2
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

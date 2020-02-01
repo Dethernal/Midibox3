@@ -22,6 +22,8 @@
 #ifndef __STM32F1xx_IT_H
 #define __STM32F1xx_IT_H
 
+#include "PIC.h"
+
 #ifdef __cplusplus
  extern "C" {
 #endif 
@@ -29,7 +31,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "midiControl.h"
 
 /* USER CODE END Includes */
 

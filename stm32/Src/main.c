@@ -20,10 +20,12 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "utils.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "export.h"
+#include "utils.h"
+#include "iobuffers.h"
+#include "midi_in_handler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,6 +100,15 @@ int main(void)
 
     /* USER CODE BEGIN SysInit */
 
+    MPU401_Init();
+    ring_init(&midi_in_buf);
+    ring_init(&db_out_buf);
+    ring_init(&din_out_buf);
+
+    current_intercept_mode = VOLUME_VELOCITY;
+    current_alteration_mode = VOLUME_MULTIPLY;
+    current_max_volume = 255;
+
     /* USER CODE END SysInit */
 
     /* Initialize all configured peripherals */
@@ -132,9 +143,29 @@ int main(void)
     LL_USART_EnableIT_TXE(USART1);
     LL_USART_EnableIT_RXNE(USART1);
     NVIC_ClearPendingIRQ(USART1_IRQn);
+
+    LL_TIM_EnableIT_UPDATE(TIM2);
+
+
     while (1)
     {
         /* USER CODE END WHILE */
+
+        // do isa i/o
+        if (QueueUsed() && (~PINB & PIN_DSR)) {
+            send_isa_byte(MPU401_ReadData());		// send data if there's any in the buffer
+        }
+        if (PINB & PIN_CRR) {		// isa control input latch is full
+            MPU401_WriteCommand(recv_isa_byte());
+        }
+        if (PINB & PIN_DRR) {		// isa data input latch is full
+            MPU401_WriteData(recv_isa_byte());
+        }
+        // do midi i/o
+        send_midi_byte();				// see if we need to send a byte
+        /* if (UCSR0A & (1<<RXC0)) {	// midi uart rx buffer is full
+            process_midi_byte();
+        } */
 
         /* USER CODE BEGIN 3 */
     }

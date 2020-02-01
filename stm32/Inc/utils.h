@@ -11,14 +11,13 @@
 #include "stm32f1xx_ll_utils.h"
 #include "stm32f1xx_ll_pwr.h"
 
-#ifdef __cplusplus
- extern "C" {
-#endif
+/* SOFTMPU: Additional defines, typedefs etc. for C */
+typedef unsigned long Bit32u;
+typedef int Bits;
 
-void delay_ms(int ms);
+#define SYSEX_SIZE 1024		// sysex buffer for delay calculation
 
-#ifdef __cplusplus
-}
-#endif
+void delay_ms(uint32_t ms);
+
 
 #endif
