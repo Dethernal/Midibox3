@@ -93,7 +93,7 @@ void PIC_Update(bool blocking) {
 
          if (blocking)
         {
-                delay_ms(1);
+             LL_mDelay(1);
         }
 
         /* SOFTMPU: Decrement sysex delay used in midi.c */

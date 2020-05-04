@@ -39,7 +39,7 @@
 #include "midi.h"
 #include "iobuffers.h"
 
-static ring_buffer midi_out_buff = { {0}, 0, 0 };
+ring_buffer midi_out_buff = { {0}, 0, 0 };
 
 const uint8_t MIDI_evt_len[256] = {
  0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0,  // 0x00
@@ -103,22 +103,20 @@ static struct {
 /* SOFTMPU: Sysex delay is decremented from PIC_Update */
 volatile uint16_t MIDI_sysex_delaytime;
 
+
 static void PlayMsg(uint8_t* msg, uint16_t len)
 {
-	// despite the name of this function, we're just going to buffer this message to send later.
-    for (uint16_t i = 0; i < len; i++) {
-		unsigned int next = (unsigned int)(midi_out_buff.head + 1) % RAWBUF;
-		if (next != midi_out_buff.tail) {
-			midi_out_buff.buffer[midi_out_buff.head] = msg[i];
-			midi_out_buff.head = next;
-		}
-	}
+    // Enqueue data and start transmission if it not already started
+    ring_push(&midi_out_buff, (char*) msg, len);
+    if (LL_USART_IsActiveFlag_TXE(USART2)) {
+        LL_USART_TransmitData8(USART2, ring_popb(&midi_out_buff));
+        LL_USART_EnableIT_TXE(USART2);
+    }
 }
 
 static void send_midi_byte_now(uint8_t byte) {
-    while (!LL_USART_IsActiveFlag_TXE(US)
-    loop_until_bit_is_set(UCSR0A, UDRE0);
-	UDR0 = byte;
+    while (!LL_USART_IsActiveFlag_TXE(USART2));
+    LL_USART_TransmitData8(USART2, byte);
 }
 
 /* SOFTMPU: Fake "All Notes Off" for Roland RA-50 */
@@ -134,8 +132,8 @@ static void FakeAllNotesOff(uint8_t chan)
 
 	for (note=0;note<pChan->used;note++)
 	{
-		MIDI_note_off[1]=pChan->notes[note];
-		PlayMsg(MIDI_note_off,3);
+        MIDI_note_off[1]=pChan->notes[note];
+        PlayMsg(MIDI_note_off,3);
 	}
 
 	pChan->used=0;
@@ -204,16 +202,17 @@ void MIDI_RawOutByte(uint8_t data) {
 	}
 }
 
-void send_midi_byte() {	
+void send_midi_byte() {
 	if (midi_out_buff.head == midi_out_buff.tail) return;	// nothing to send
-	if (bit_is_clear(UCSR0A, UDRE0)) return;	// can't send yet
+    if (LL_USART_IsActiveFlag_TXE(USART2)) return;
+    //if (bit_is_clear(UCSR0A, UDRE0)) return;	// can't send yet
 	//loop_until_bit_is_set(UCSR0A, UDRE0);
 	if (midi.sysex.delay && MIDI_sysex_delaytime) {	// still waiting for sysex delay
-		_delay_us(320);
+        LL_mDelay(1);
+        //_delay_us(320);
 		return;
 	}
-    uint8_t data = midi_out_buff.buffer[midi_out_buff.tail];
-	midi_out_buff.tail = (unsigned int)(midi_out_buff.tail + 1) % RAWBUF;	// increment tail, wrap to 0 if we're at the end
+    uint8_t data = ring_popb(&midi_out_buff);
 
 	if (midi.sysex.status==0xf0) {
 		if (!(data&0x80)) {
@@ -221,12 +220,13 @@ void send_midi_byte() {
 				midi.sysex.used = 0;
 				midi.sysex.usedbufs++;
             }
-			
-            UDR0 = data;
+            LL_USART_TransmitData8(USART2, data);
+            //UDR0 = data;
 			midi.sysex.buf[midi.sysex.used++] = data;
 			return;
 		} else {
-			UDR0 = 0xf7;
+            LL_USART_TransmitData8(USART2, 0xf7);
+            //UDR0 = 0xf7;
 			midi.sysex.buf[midi.sysex.used++] = 0xf7;
 			midi.sysex.status = 0xf7;
 				/*LOG(LOG_ALL,LOG_NORMAL)("Play sysex; address:%02X %02X %02X, length:%4d, delay:%3d", midi.sysex.buf[5], midi.sysex.buf[6], midi.sysex.buf[7], midi.sysex.used, midi.sysex.delay);*/
@@ -253,15 +253,16 @@ void send_midi_byte() {
 	if (data&0x80) {
 		midi.sysex.status=data;
 		if (midi.sysex.status==0xf0) {
-			UDR0 = 0xf0;
+            LL_USART_TransmitData8(USART2, 0xf0);
+            //UDR0 = 0xf0;
 			midi.sysex.used=1;
 			midi.sysex.buf[0]=0xf0;
             midi.sysex.usedbufs=0;
 			return;
 		}
 	}
-	
-	UDR0 = data;	// not sysex
+    LL_USART_TransmitData8(USART2, data);
+    //UDR0 = data;	// not sysex
 }
 
 bool MIDI_Available(void)  {
@@ -280,8 +281,7 @@ void MIDI_Init(bool delaysysex,bool fakeallnotesoff){
 	midi.cmd_len=0;
     midi.fakeallnotesoff=fakeallnotesoff>0;
     midi.available=true;
-
-	midi_out_buff.head = midi_out_buff.tail = 0;
+    ring_init(&midi_out_buff);
 		
     /* SOFTMPU: Display welcome message on MT-32 */
     for (i=0;i<30;i++)

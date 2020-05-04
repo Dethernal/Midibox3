@@ -34,7 +34,7 @@ typedef enum current_input_t {
     INPUT_NONE,
     INPUT_CONTROL,
     INPUT_NOTEON_NN,
-    INPUT_VOLUME,
+    //INPUT_VOLUME,
     INPUT_EXPRESSION,
     INPUT_SYSEX,
     INPUT_SYSEX_DEV_ID,
@@ -42,12 +42,13 @@ typedef enum current_input_t {
     INPUT_SYSEX_NIL_ARG
 } current_input_t;
 
-inline uint8_t change_volume(uint8_t volume) {
+static inline uint8_t change_volume(uint8_t volume) {
     if (current_max_volume == 255) return  volume;
     uint16_t temp_volume;
     switch (current_alteration_mode) {
         case VOLUME_CLAMP:
             return volume > current_max_volume ? current_max_volume : volume;
+        default:
         case VOLUME_MULTIPLY:
             temp_volume = (uint16_t) volume * (uint16_t) current_max_volume;
             return (uint8_t) (temp_volume >> 8);
@@ -55,5 +56,7 @@ inline uint8_t change_volume(uint8_t volume) {
 }
 
 void handle_midi_byte_in(uint8_t data);
+
+extern ring_buffer direct_buffer;
 
 #endif // MIDI_IN_HANDLER_H

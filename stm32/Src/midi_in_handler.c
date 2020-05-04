@@ -1,5 +1,6 @@
 #include "midi_in_handler.h"
-
+#include "midi.h"
+#include "config.h"
 uint8_t last_command = 0;
 current_input_t input_state = INPUT_NONE;
 uint16_t next_command_delay = 0;
@@ -9,6 +10,16 @@ volume_intercept_t current_intercept_mode;
 uint8_t current_max_volume;
 uint8_t new_max_volume;
 sysex_nil_cmd_t current_command;
+
+ring_buffer direct_buffer = {{0}, 0, 0};
+
+static void DirectWrite(uint8_t data) {
+    ring_pushb(&direct_buffer, data);
+    if (LL_USART_IsActiveFlag_TXE(USART1)) {
+        LL_USART_TransmitData8(USART1, ring_popb(&direct_buffer));
+        LL_USART_EnableIT_TXE(USART1);
+    }
+}
 
 void handle_midi_byte_in(uint8_t data) {
     switch (input_state) {
@@ -27,7 +38,7 @@ void handle_midi_byte_in(uint8_t data) {
                 input_state = INPUT_NONE;
             }
         }
-        break;
+        return;
     case INPUT_NOTEON_NN:
         input_state = INPUT_EXPRESSION;
         break;
@@ -47,8 +58,13 @@ void handle_midi_byte_in(uint8_t data) {
             input_state = INPUT_SYSEX_NIL_CMD;
         } else {
             input_state = INPUT_SYSEX;
+
+            MPU401_WriteData(0xf0);
+            MPU401_WriteData(data);
+            DirectWrite(0xf0);
+            DirectWrite(data);
         }
-        break;
+        return;
     case INPUT_SYSEX_NIL_CMD:
         new_max_volume = 0;
         current_max_volume = 0;
@@ -77,6 +93,10 @@ void handle_midi_byte_in(uint8_t data) {
         if (data == 0xf7) {
             input_state = INPUT_NONE;
         }
-        break;
+        MPU401_WriteData(data);
+        DirectWrite(data);
+        return;
     }
+    MPU401_WriteData(data);
+    DirectWrite(data);
 }

@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccJxf9pn.s 			page 1
+ARM GAS  /tmp/ccd3x48q.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   32:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *
   33:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   ******************************************************************************
   34:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
-ARM GAS  /tmp/ccJxf9pn.s 			page 2
+ARM GAS  /tmp/ccd3x48q.s 			page 2
 
 
   35:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   89:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
   90:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** typedef struct
   91:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** {
-ARM GAS  /tmp/ccJxf9pn.s 			page 3
+ARM GAS  /tmp/ccd3x48q.s 			page 3
 
 
   92:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   uint32_t BaudRate;                  /*!< This field defines expected Usart communication baud rat
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  146:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****                                            For more details, refer to description of this function.
  147:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
  148:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   uint32_t ClockPhase;                /*!< Specifies the clock transition on which the bit capture 
-ARM GAS  /tmp/ccJxf9pn.s 			page 4
+ARM GAS  /tmp/ccd3x48q.s 			page 4
 
 
  149:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****                                            This parameter can be a value of @ref USART_LL_EC_PHASE.
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  203:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
  204:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @}
  205:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
-ARM GAS  /tmp/ccJxf9pn.s 			page 5
+ARM GAS  /tmp/ccd3x48q.s 			page 5
 
 
  206:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  260:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
  261:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
  262:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** #define LL_USART_CLOCK_DISABLE                  0x00000000U            /*!< Clock signal not provid
-ARM GAS  /tmp/ccJxf9pn.s 			page 6
+ARM GAS  /tmp/ccd3x48q.s 			page 6
 
 
  263:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** #define LL_USART_CLOCK_ENABLE                   USART_CR2_CLKEN        /*!< Clock signal provided *
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  317:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
  318:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /** @defgroup USART_LL_EC_IRDA_POWER IrDA Power
  319:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @{
-ARM GAS  /tmp/ccJxf9pn.s 			page 7
+ARM GAS  /tmp/ccd3x48q.s 			page 7
 
 
  320:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  374:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @brief  Compute USARTDIV value according to Peripheral Clock and
  375:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         expected Baud Rate in 8 bits sampling mode (32 bits value of USARTDIV is returned)
  376:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  __PERIPHCLK__ Peripheral Clock frequency used for USART instance
-ARM GAS  /tmp/ccJxf9pn.s 			page 8
+ARM GAS  /tmp/ccd3x48q.s 			page 8
 
 
  377:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  __BAUDRATE__ Baud rate value to achieve
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  431:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   SET_BIT(USARTx->CR1, USART_CR1_UE);
  432:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** }
  433:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
-ARM GAS  /tmp/ccJxf9pn.s 			page 9
+ARM GAS  /tmp/ccd3x48q.s 			page 9
 
 
  434:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   55 0020 BD46     		mov	sp, r7
   56              	.LCFI4:
   57              		.cfi_def_cfa_register 13
-ARM GAS  /tmp/ccJxf9pn.s 			page 10
+ARM GAS  /tmp/ccd3x48q.s 			page 10
 
 
   58              		@ sp needed
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  496:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @retval None
  497:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
  498:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** __STATIC_INLINE void LL_USART_DisableDirectionTx(USART_TypeDef *USARTx)
-ARM GAS  /tmp/ccJxf9pn.s 			page 11
+ARM GAS  /tmp/ccd3x48q.s 			page 11
 
 
  499:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** {
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  553:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   MODIFY_REG(USARTx->CR1, USART_CR1_PS | USART_CR1_PCE, Parity);
  554:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** }
  555:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
-ARM GAS  /tmp/ccJxf9pn.s 			page 12
+ARM GAS  /tmp/ccd3x48q.s 			page 12
 
 
  556:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  610:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** }
  611:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
  612:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
-ARM GAS  /tmp/ccJxf9pn.s 			page 13
+ARM GAS  /tmp/ccd3x48q.s 			page 13
 
 
  613:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @brief  Return Word length (i.e. nb of data bits, excluding start and stop bits)
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  667:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   MODIFY_REG(USARTx->CR2, USART_CR2_LBCL, LastBitClockPulse);
  668:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** }
  669:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
-ARM GAS  /tmp/ccJxf9pn.s 			page 14
+ARM GAS  /tmp/ccd3x48q.s 			page 14
 
 
  670:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  724:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         @arg @ref LL_USART_POLARITY_LOW
  725:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         @arg @ref LL_USART_POLARITY_HIGH
  726:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @retval None
-ARM GAS  /tmp/ccJxf9pn.s 			page 15
+ARM GAS  /tmp/ccd3x48q.s 			page 15
 
 
  727:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  781:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  USARTx USART Instance
  782:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @retval None
  783:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   */
-ARM GAS  /tmp/ccJxf9pn.s 			page 16
+ARM GAS  /tmp/ccd3x48q.s 			page 16
 
 
  784:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** __STATIC_INLINE void LL_USART_EnableSCLKOutput(USART_TypeDef *USARTx)
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  113              	.LFE86:
  115              		.section	.text.LL_USART_SetStopBitsLength,"ax",%progbits
  116              		.align	1
-ARM GAS  /tmp/ccJxf9pn.s 			page 17
+ARM GAS  /tmp/ccd3x48q.s 			page 17
 
 
  117              		.syntax unified
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  144 000e 23F44052 		bic	r2, r3, #12288
  145 0012 3B68     		ldr	r3, [r7]
  146 0014 1A43     		orrs	r2, r2, r3
-ARM GAS  /tmp/ccJxf9pn.s 			page 18
+ARM GAS  /tmp/ccd3x48q.s 			page 18
 
 
  147 0016 7B68     		ldr	r3, [r7, #4]
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  857:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  DataWidth This parameter can be one of the following values:
  858:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         @arg @ref LL_USART_DATAWIDTH_8B
  859:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         @arg @ref LL_USART_DATAWIDTH_9B
-ARM GAS  /tmp/ccJxf9pn.s 			page 19
+ARM GAS  /tmp/ccd3x48q.s 			page 19
 
 
  860:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  Parity This parameter can be one of the following values:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  914:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   SET_BIT(USARTx->CR3, USART_CR3_RTSE);
  915:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** }
  916:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** 
-ARM GAS  /tmp/ccJxf9pn.s 			page 20
+ARM GAS  /tmp/ccd3x48q.s 			page 20
 
 
  917:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  971:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** {
  175              		.loc 1 971 0
  176              		.cfi_startproc
-ARM GAS  /tmp/ccJxf9pn.s 			page 21
+ARM GAS  /tmp/ccd3x48q.s 			page 21
 
 
  177              		@ args = 0, pretend = 0, frame = 8
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  979:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @rmtoll CR3          RTSE          LL_USART_GetHWFlowCtrl\n
  980:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         CR3          CTSE          LL_USART_GetHWFlowCtrl
  981:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  USARTx USART Instance
-ARM GAS  /tmp/ccJxf9pn.s 			page 22
+ARM GAS  /tmp/ccd3x48q.s 			page 22
 
 
  982:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @retval Returned value can be one of the following values:
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
 1036:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  USARTx USART Instance
 1037:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  PeriphClk Peripheral Clock
 1038:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @param  OverSampling This parameter can be one of the following values:
-ARM GAS  /tmp/ccJxf9pn.s 			page 23
+ARM GAS  /tmp/ccd3x48q.s 			page 23
 
 
 1039:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   *         @arg @ref LL_USART_OVERSAMPLING_16
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
 1093:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** #else
 1094:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h **** /**
 1095:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @brief  Configure USART BRR register for achieving expected Baud Rate value.
-ARM GAS  /tmp/ccJxf9pn.s 			page 24
+ARM GAS  /tmp/ccd3x48q.s 			page 24
 
 
 1096:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h ****   * @note   Compute and set USARTDIV value in BRR Register (full BRR content)
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  267 003c 9B00     		lsls	r3, r3, #2
  268 003e B2FBF3F2 		udiv	r2, r2, r3
  269 0042 1D4B     		ldr	r3, .L7
-ARM GAS  /tmp/ccJxf9pn.s 			page 25
+ARM GAS  /tmp/ccd3x48q.s 			page 25
 
 
  270 0044 A3FB0203 		umull	r0, r3, r3, r2
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  323              	.LCFI29:
  324              		.cfi_restore 7
  325              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/ccJxf9pn.s 			page 26
+ARM GAS  /tmp/ccd3x48q.s 			page 26
 
 
  326 00b4 7047     		bx	lr
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   39:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
   40:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
   41:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-ARM GAS  /tmp/ccJxf9pn.s 			page 27
+ARM GAS  /tmp/ccd3x48q.s 			page 27
 
 
   42:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   96:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #if defined(DMA2)
   97:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #define LL_AHB1_GRP1_PERIPH_DMA2           RCC_AHBENR_DMA2EN
   98:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #endif /*DMA2*/
-ARM GAS  /tmp/ccJxf9pn.s 			page 28
+ARM GAS  /tmp/ccd3x48q.s 			page 28
 
 
   99:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #if defined(ETH)
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  153:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #if defined(TIM14)
  154:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_TIM14          RCC_APB1ENR_TIM14EN
  155:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #endif /*TIM14*/
-ARM GAS  /tmp/ccJxf9pn.s 			page 29
+ARM GAS  /tmp/ccd3x48q.s 			page 29
 
 
  156:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #define LL_APB1_GRP1_PERIPH_TIM2           RCC_APB1ENR_TIM2EN
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  210:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #if defined(GPIOG)
  211:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_GPIOG          RCC_APB2ENR_IOPGEN
  212:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #endif /*GPIOG*/
-ARM GAS  /tmp/ccJxf9pn.s 			page 30
+ARM GAS  /tmp/ccd3x48q.s 			page 30
 
 
  213:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** #define LL_APB2_GRP1_PERIPH_SPI1           RCC_APB2ENR_SPI1EN
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  267:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         AHBENR       SDIOEN        LL_AHB1_GRP1_EnableClock\n
  268:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         AHBENR       SRAMEN        LL_AHB1_GRP1_EnableClock
  269:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
-ARM GAS  /tmp/ccJxf9pn.s 			page 31
+ARM GAS  /tmp/ccd3x48q.s 			page 31
 
 
  270:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         @arg @ref LL_AHB1_GRP1_PERIPH_CRC
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  324:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** {
  325:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   return (READ_BIT(RCC->AHBENR, Periphs) == Periphs);
  326:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** }
-ARM GAS  /tmp/ccJxf9pn.s 			page 32
+ARM GAS  /tmp/ccd3x48q.s 			page 32
 
 
  327:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** 
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  381:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * @brief  Release AHB1 peripherals reset.
  382:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * @rmtoll AHBRSTR      ETHMACRST     LL_AHB1_GRP1_ReleaseReset\n
  383:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         AHBRSTR      OTGFSRST      LL_AHB1_GRP1_ReleaseReset
-ARM GAS  /tmp/ccJxf9pn.s 			page 33
+ARM GAS  /tmp/ccd3x48q.s 			page 33
 
 
  384:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   * @param  Periphs This parameter can be a combination of the following values:
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  438:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_DAC1 (*)
  439:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_I2C1
  440:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_I2C2 (*)
-ARM GAS  /tmp/ccJxf9pn.s 			page 34
+ARM GAS  /tmp/ccd3x48q.s 			page 34
 
 
  441:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         @arg @ref LL_APB1_GRP1_PERIPH_PWR
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  495:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      USART2EN      LL_APB1_GRP1_IsEnabledClock\n
  496:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      USART3EN      LL_APB1_GRP1_IsEnabledClock\n
  497:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      USBEN         LL_APB1_GRP1_IsEnabledClock\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 35
+ARM GAS  /tmp/ccd3x48q.s 			page 35
 
 
  498:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      WWDGEN        LL_APB1_GRP1_IsEnabledClock
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  552:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      TIM5EN        LL_APB1_GRP1_DisableClock\n
  553:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      TIM6EN        LL_APB1_GRP1_DisableClock\n
  554:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      TIM7EN        LL_APB1_GRP1_DisableClock\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 36
+ARM GAS  /tmp/ccd3x48q.s 			page 36
 
 
  555:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1ENR      UART4EN       LL_APB1_GRP1_DisableClock\n
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  609:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM13RST      LL_APB1_GRP1_ForceReset\n
  610:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM14RST      LL_APB1_GRP1_ForceReset\n
  611:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM2RST       LL_APB1_GRP1_ForceReset\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 37
+ARM GAS  /tmp/ccd3x48q.s 			page 37
 
 
  612:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM3RST       LL_APB1_GRP1_ForceReset\n
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  354              	.LCFI31:
  355              		.cfi_def_cfa_offset 16
  356 0004 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/ccJxf9pn.s 			page 38
+ARM GAS  /tmp/ccd3x48q.s 			page 38
 
 
  357              	.LCFI32:
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  672:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM13RST      LL_APB1_GRP1_ReleaseReset\n
  673:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM14RST      LL_APB1_GRP1_ReleaseReset\n
  674:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM2RST       LL_APB1_GRP1_ReleaseReset\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 39
+ARM GAS  /tmp/ccd3x48q.s 			page 39
 
 
  675:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB1RSTR     TIM3RST       LL_APB1_GRP1_ReleaseReset\n
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  407              	.LCFI37:
  408              		.cfi_def_cfa_offset 16
  409 0004 00AF     		add	r7, sp, #0
-ARM GAS  /tmp/ccJxf9pn.s 			page 40
+ARM GAS  /tmp/ccd3x48q.s 			page 40
 
 
  410              	.LCFI38:
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  734:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      ADC3EN        LL_APB2_GRP1_EnableClock\n
  735:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      AFIOEN        LL_APB2_GRP1_EnableClock\n
  736:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPAEN        LL_APB2_GRP1_EnableClock\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 41
+ARM GAS  /tmp/ccd3x48q.s 			page 41
 
 
  737:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPBEN        LL_APB2_GRP1_EnableClock\n
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  791:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      ADC2EN        LL_APB2_GRP1_IsEnabledClock\n
  792:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      ADC3EN        LL_APB2_GRP1_IsEnabledClock\n
  793:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      AFIOEN        LL_APB2_GRP1_IsEnabledClock\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 42
+ARM GAS  /tmp/ccd3x48q.s 			page 42
 
 
  794:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPAEN        LL_APB2_GRP1_IsEnabledClock\n
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  848:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPAEN        LL_APB2_GRP1_DisableClock\n
  849:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPBEN        LL_APB2_GRP1_DisableClock\n
  850:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPCEN        LL_APB2_GRP1_DisableClock\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 43
+ARM GAS  /tmp/ccd3x48q.s 			page 43
 
 
  851:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2ENR      IOPDEN        LL_APB2_GRP1_DisableClock\n
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  905:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     IOPDRST       LL_APB2_GRP1_ForceReset\n
  906:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     IOPERST       LL_APB2_GRP1_ForceReset\n
  907:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     IOPFRST       LL_APB2_GRP1_ForceReset\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 44
+ARM GAS  /tmp/ccd3x48q.s 			page 44
 
 
  908:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     IOPGRST       LL_APB2_GRP1_ForceReset\n
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  465              		.cfi_def_cfa_register 7
  466 0006 7860     		str	r0, [r7, #4]
  948:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   SET_BIT(RCC->APB2RSTR, Periphs);
-ARM GAS  /tmp/ccJxf9pn.s 			page 45
+ARM GAS  /tmp/ccd3x48q.s 			page 45
 
 
  467              		.loc 2 948 0
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  968:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     TIM16RST      LL_APB2_GRP1_ReleaseReset\n
  969:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     TIM17RST      LL_APB2_GRP1_ReleaseReset\n
  970:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     TIM1RST       LL_APB2_GRP1_ReleaseReset\n
-ARM GAS  /tmp/ccJxf9pn.s 			page 46
+ARM GAS  /tmp/ccd3x48q.s 			page 46
 
 
  971:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h ****   *         APB2RSTR     TIM8RST       LL_APB2_GRP1_ReleaseReset\n
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  525 0010 0349     		ldr	r1, .L19
  526 0012 1340     		ands	r3, r3, r2
  527 0014 CB60     		str	r3, [r1, #12]
-ARM GAS  /tmp/ccJxf9pn.s 			page 47
+ARM GAS  /tmp/ccd3x48q.s 			page 47
 
 
 1004:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_bus.h **** }
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   24:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
   25:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
   26:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-ARM GAS  /tmp/ccJxf9pn.s 			page 48
+ARM GAS  /tmp/ccd3x48q.s 			page 48
 
 
   27:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
   81:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****                                        || ((__VALUE__) == LL_USART_DIRECTION_TX_RX))
   82:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** 
   83:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** #define IS_LL_USART_PARITY(__VALUE__) (((__VALUE__) == LL_USART_PARITY_NONE) \
-ARM GAS  /tmp/ccJxf9pn.s 			page 49
+ARM GAS  /tmp/ccd3x48q.s 			page 49
 
 
   84:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****                                     || ((__VALUE__) == LL_USART_PARITY_EVEN) \
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  138:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** {
  560              		.loc 3 138 0
  561              		.cfi_startproc
-ARM GAS  /tmp/ccJxf9pn.s 			page 50
+ARM GAS  /tmp/ccd3x48q.s 			page 50
 
 
  562              		@ args = 0, pretend = 0, frame = 16
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  599 0032 FFF7FEFF 		bl	LL_APB1_GRP1_ForceReset
  156:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** 
  157:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     /* Release reset of USART clock */
-ARM GAS  /tmp/ccJxf9pn.s 			page 51
+ARM GAS  /tmp/ccd3x48q.s 			page 51
 
 
  158:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     LL_APB1_GRP1_ReleaseReset(LL_APB1_GRP1_PERIPH_USART2);
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  619 005a 0023     		movs	r3, #0
  620 005c FB73     		strb	r3, [r7, #15]
  621              	.L23:
-ARM GAS  /tmp/ccJxf9pn.s 			page 52
+ARM GAS  /tmp/ccd3x48q.s 			page 52
 
 
  193:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   }
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  658              	.LCFI59:
  659              		.cfi_def_cfa_offset 8
  660              		.cfi_offset 7, -8
-ARM GAS  /tmp/ccJxf9pn.s 			page 53
+ARM GAS  /tmp/ccd3x48q.s 			page 53
 
 
  661              		.cfi_offset 14, -4
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  246:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** #else
  247:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     MODIFY_REG(USARTx->CR1,
  682              		.loc 3 247 0
-ARM GAS  /tmp/ccJxf9pn.s 			page 54
+ARM GAS  /tmp/ccd3x48q.s 			page 54
 
 
  683 001e 7B68     		ldr	r3, [r7, #4]
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  271:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     if (USARTx == USART1)
  714              		.loc 3 271 0
  715 0062 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/ccJxf9pn.s 			page 55
+ARM GAS  /tmp/ccd3x48q.s 			page 55
 
 
  716 0064 134A     		ldr	r2, .L35
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  299:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****       /* Nothing to do, as error code is already assigned to ERROR value */
  300:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     }
  301:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** 
-ARM GAS  /tmp/ccJxf9pn.s 			page 56
+ARM GAS  /tmp/ccd3x48q.s 			page 56
 
 
  302:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     /* Configure the USART Baud Rate :
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  773              		@ sp needed
  774 00b2 80BD     		pop	{r7, pc}
  775              	.L36:
-ARM GAS  /tmp/ccJxf9pn.s 			page 57
+ARM GAS  /tmp/ccd3x48q.s 			page 57
 
 
  776              		.align	2
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  818              		.loc 3 339 0
  819 0016 7B68     		ldr	r3, [r7, #4]
  820 0018 0022     		movs	r2, #0
-ARM GAS  /tmp/ccJxf9pn.s 			page 58
+ARM GAS  /tmp/ccd3x48q.s 			page 58
 
 
  821 001a 9A60     		str	r2, [r3, #8]
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  356:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   * @retval An ErrorStatus enumeration value:
  357:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   *          - SUCCESS: USART registers related to Clock settings are initialized according to USAR
  358:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   *          - ERROR: Problem occurred during USART Registers initialization
-ARM GAS  /tmp/ccJxf9pn.s 			page 59
+ARM GAS  /tmp/ccd3x48q.s 			page 59
 
 
  359:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   */
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  894 0024 FFF7FEFF 		bl	LL_USART_DisableSCLKOutput
  895 0028 13E0     		b	.L42
  896              	.L40:
-ARM GAS  /tmp/ccJxf9pn.s 			page 60
+ARM GAS  /tmp/ccd3x48q.s 			page 60
 
 
  380:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****     }
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  920 0052 FB7B     		ldrb	r3, [r7, #15]	@ zero_extendqisi2
  411:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c **** }
  921              		.loc 3 411 0
-ARM GAS  /tmp/ccJxf9pn.s 			page 61
+ARM GAS  /tmp/ccd3x48q.s 			page 61
 
 
  922 0054 1846     		mov	r0, r3
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  966 0010 0022     		movs	r2, #0
  967 0012 5A60     		str	r2, [r3, #4]
  424:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_usart.c ****   USART_ClockInitStruct->ClockPhase        = LL_USART_PHASE_1EDGE;             /* Not relevant when
-ARM GAS  /tmp/ccJxf9pn.s 			page 62
+ARM GAS  /tmp/ccd3x48q.s 			page 62
 
 
  968              		.loc 3 424 0
@@ -3696,46 +3696,46 @@ ARM GAS  /tmp/ccJxf9pn.s 			page 1
  999              		.file 8 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  1000              		.file 9 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
  1001              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_rcc.h"
-ARM GAS  /tmp/ccJxf9pn.s 			page 63
+ARM GAS  /tmp/ccd3x48q.s 			page 63
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_ll_usart.c
-     /tmp/ccJxf9pn.s:16     .text.LL_USART_IsEnabled:0000000000000000 $t
-     /tmp/ccJxf9pn.s:22     .text.LL_USART_IsEnabled:0000000000000000 LL_USART_IsEnabled
-     /tmp/ccJxf9pn.s:68     .text.LL_USART_DisableSCLKOutput:0000000000000000 $t
-     /tmp/ccJxf9pn.s:74     .text.LL_USART_DisableSCLKOutput:0000000000000000 LL_USART_DisableSCLKOutput
-     /tmp/ccJxf9pn.s:116    .text.LL_USART_SetStopBitsLength:0000000000000000 $t
-     /tmp/ccJxf9pn.s:122    .text.LL_USART_SetStopBitsLength:0000000000000000 LL_USART_SetStopBitsLength
-     /tmp/ccJxf9pn.s:167    .text.LL_USART_SetHWFlowCtrl:0000000000000000 $t
-     /tmp/ccJxf9pn.s:173    .text.LL_USART_SetHWFlowCtrl:0000000000000000 LL_USART_SetHWFlowCtrl
-     /tmp/ccJxf9pn.s:218    .text.LL_USART_SetBaudRate:0000000000000000 $t
-     /tmp/ccJxf9pn.s:224    .text.LL_USART_SetBaudRate:0000000000000000 LL_USART_SetBaudRate
-     /tmp/ccJxf9pn.s:330    .text.LL_USART_SetBaudRate:00000000000000b8 $d
-     /tmp/ccJxf9pn.s:335    .text.LL_APB1_GRP1_ForceReset:0000000000000000 $t
-     /tmp/ccJxf9pn.s:341    .text.LL_APB1_GRP1_ForceReset:0000000000000000 LL_APB1_GRP1_ForceReset
-     /tmp/ccJxf9pn.s:384    .text.LL_APB1_GRP1_ForceReset:0000000000000020 $d
-     /tmp/ccJxf9pn.s:389    .text.LL_APB1_GRP1_ReleaseReset:0000000000000000 $t
-     /tmp/ccJxf9pn.s:395    .text.LL_APB1_GRP1_ReleaseReset:0000000000000000 LL_APB1_GRP1_ReleaseReset
-     /tmp/ccJxf9pn.s:438    .text.LL_APB1_GRP1_ReleaseReset:0000000000000020 $d
-     /tmp/ccJxf9pn.s:443    .text.LL_APB2_GRP1_ForceReset:0000000000000000 $t
-     /tmp/ccJxf9pn.s:449    .text.LL_APB2_GRP1_ForceReset:0000000000000000 LL_APB2_GRP1_ForceReset
-     /tmp/ccJxf9pn.s:491    .text.LL_APB2_GRP1_ForceReset:0000000000000020 $d
-     /tmp/ccJxf9pn.s:496    .text.LL_APB2_GRP1_ReleaseReset:0000000000000000 $t
-     /tmp/ccJxf9pn.s:502    .text.LL_APB2_GRP1_ReleaseReset:0000000000000000 LL_APB2_GRP1_ReleaseReset
-     /tmp/ccJxf9pn.s:545    .text.LL_APB2_GRP1_ReleaseReset:0000000000000020 $d
-     /tmp/ccJxf9pn.s:550    .text.LL_USART_DeInit:0000000000000000 $t
-     /tmp/ccJxf9pn.s:557    .text.LL_USART_DeInit:0000000000000000 LL_USART_DeInit
-     /tmp/ccJxf9pn.s:637    .text.LL_USART_DeInit:0000000000000068 $d
-     /tmp/ccJxf9pn.s:644    .text.LL_USART_Init:0000000000000000 $t
-     /tmp/ccJxf9pn.s:651    .text.LL_USART_Init:0000000000000000 LL_USART_Init
-     /tmp/ccJxf9pn.s:778    .text.LL_USART_Init:00000000000000b4 $d
-     /tmp/ccJxf9pn.s:785    .text.LL_USART_StructInit:0000000000000000 $t
-     /tmp/ccJxf9pn.s:792    .text.LL_USART_StructInit:0000000000000000 LL_USART_StructInit
-     /tmp/ccJxf9pn.s:852    .text.LL_USART_ClockInit:0000000000000000 $t
-     /tmp/ccJxf9pn.s:859    .text.LL_USART_ClockInit:0000000000000000 LL_USART_ClockInit
-     /tmp/ccJxf9pn.s:935    .text.LL_USART_ClockStructInit:0000000000000000 $t
-     /tmp/ccJxf9pn.s:942    .text.LL_USART_ClockStructInit:0000000000000000 LL_USART_ClockStructInit
+     /tmp/ccd3x48q.s:16     .text.LL_USART_IsEnabled:0000000000000000 $t
+     /tmp/ccd3x48q.s:22     .text.LL_USART_IsEnabled:0000000000000000 LL_USART_IsEnabled
+     /tmp/ccd3x48q.s:68     .text.LL_USART_DisableSCLKOutput:0000000000000000 $t
+     /tmp/ccd3x48q.s:74     .text.LL_USART_DisableSCLKOutput:0000000000000000 LL_USART_DisableSCLKOutput
+     /tmp/ccd3x48q.s:116    .text.LL_USART_SetStopBitsLength:0000000000000000 $t
+     /tmp/ccd3x48q.s:122    .text.LL_USART_SetStopBitsLength:0000000000000000 LL_USART_SetStopBitsLength
+     /tmp/ccd3x48q.s:167    .text.LL_USART_SetHWFlowCtrl:0000000000000000 $t
+     /tmp/ccd3x48q.s:173    .text.LL_USART_SetHWFlowCtrl:0000000000000000 LL_USART_SetHWFlowCtrl
+     /tmp/ccd3x48q.s:218    .text.LL_USART_SetBaudRate:0000000000000000 $t
+     /tmp/ccd3x48q.s:224    .text.LL_USART_SetBaudRate:0000000000000000 LL_USART_SetBaudRate
+     /tmp/ccd3x48q.s:330    .text.LL_USART_SetBaudRate:00000000000000b8 $d
+     /tmp/ccd3x48q.s:335    .text.LL_APB1_GRP1_ForceReset:0000000000000000 $t
+     /tmp/ccd3x48q.s:341    .text.LL_APB1_GRP1_ForceReset:0000000000000000 LL_APB1_GRP1_ForceReset
+     /tmp/ccd3x48q.s:384    .text.LL_APB1_GRP1_ForceReset:0000000000000020 $d
+     /tmp/ccd3x48q.s:389    .text.LL_APB1_GRP1_ReleaseReset:0000000000000000 $t
+     /tmp/ccd3x48q.s:395    .text.LL_APB1_GRP1_ReleaseReset:0000000000000000 LL_APB1_GRP1_ReleaseReset
+     /tmp/ccd3x48q.s:438    .text.LL_APB1_GRP1_ReleaseReset:0000000000000020 $d
+     /tmp/ccd3x48q.s:443    .text.LL_APB2_GRP1_ForceReset:0000000000000000 $t
+     /tmp/ccd3x48q.s:449    .text.LL_APB2_GRP1_ForceReset:0000000000000000 LL_APB2_GRP1_ForceReset
+     /tmp/ccd3x48q.s:491    .text.LL_APB2_GRP1_ForceReset:0000000000000020 $d
+     /tmp/ccd3x48q.s:496    .text.LL_APB2_GRP1_ReleaseReset:0000000000000000 $t
+     /tmp/ccd3x48q.s:502    .text.LL_APB2_GRP1_ReleaseReset:0000000000000000 LL_APB2_GRP1_ReleaseReset
+     /tmp/ccd3x48q.s:545    .text.LL_APB2_GRP1_ReleaseReset:0000000000000020 $d
+     /tmp/ccd3x48q.s:550    .text.LL_USART_DeInit:0000000000000000 $t
+     /tmp/ccd3x48q.s:557    .text.LL_USART_DeInit:0000000000000000 LL_USART_DeInit
+     /tmp/ccd3x48q.s:637    .text.LL_USART_DeInit:0000000000000068 $d
+     /tmp/ccd3x48q.s:644    .text.LL_USART_Init:0000000000000000 $t
+     /tmp/ccd3x48q.s:651    .text.LL_USART_Init:0000000000000000 LL_USART_Init
+     /tmp/ccd3x48q.s:778    .text.LL_USART_Init:00000000000000b4 $d
+     /tmp/ccd3x48q.s:785    .text.LL_USART_StructInit:0000000000000000 $t
+     /tmp/ccd3x48q.s:792    .text.LL_USART_StructInit:0000000000000000 LL_USART_StructInit
+     /tmp/ccd3x48q.s:852    .text.LL_USART_ClockInit:0000000000000000 $t
+     /tmp/ccd3x48q.s:859    .text.LL_USART_ClockInit:0000000000000000 LL_USART_ClockInit
+     /tmp/ccd3x48q.s:935    .text.LL_USART_ClockStructInit:0000000000000000 $t
+     /tmp/ccd3x48q.s:942    .text.LL_USART_ClockStructInit:0000000000000000 LL_USART_ClockStructInit
                            .group:0000000000000000 wm4.0.3946371c97d0a222db2c40aaaa70ce2e
                            .group:0000000000000000 wm4.stm32f1xx.h.57.c2a10934f4c6830aeb7e4997f02806f1
                            .group:0000000000000000 wm4.stm32f103xb.h.56.66305a77cea9d5300aac997a78930076
@@ -3756,6 +3756,6 @@ DEFINED SYMBOLS
 
 UNDEFINED SYMBOLS
 LL_RCC_GetSystemClocksFreq
-ARM GAS  /tmp/ccJxf9pn.s 			page 64
+ARM GAS  /tmp/ccd3x48q.s 			page 64
 
 

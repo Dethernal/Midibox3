@@ -512,7 +512,7 @@ next_event:
         PIC_AddEvent(MPU_EVENT,(uint16_t)MPU401_TIMECONSTANT/new_time);
 }
 
-static void MPU401_EOIHandlerDispatch(void) {
+void MPU401_EOIHandlerDispatch(void) {
 	if (mpu.state.send_now) {
 		mpu.state.eoi_scheduled=true;
                 PIC_AddEvent(EOI_HANDLER,1); // Possible a bit longer
@@ -548,7 +548,7 @@ void MPU401_ResetDone(void) { /* SOFTMPU */
 	}
 }
 
-static void MPU401_Reset(void) {
+void MPU401_Reset(void) {
     uint8_t i; /* SOFTMPU */
 
 	mpu.mode=(mpu.intelligent ? M_INTELLIGENT : M_UART);

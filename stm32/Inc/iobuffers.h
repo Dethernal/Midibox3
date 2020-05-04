@@ -13,13 +13,9 @@ typedef struct ring_buffer {
     uint16_t tail;
 } ring_buffer;
 
-extern ring_buffer midi_in_buf;
-extern ring_buffer db_out_buf;
-extern ring_buffer din_out_buf;
-
 void ring_init(ring_buffer* buffer);
 
-inline uint8_t* ring_tail_offset(ring_buffer* buffer, const uint16_t offset) {
+static inline uint8_t* ring_tail_offset(ring_buffer* buffer, const uint16_t offset) {
     if (buffer->tail + offset >= RAWBUF) {
         return &buffer->buffer[buffer->tail + offset - RAWBUF];
     } else {
@@ -27,7 +23,7 @@ inline uint8_t* ring_tail_offset(ring_buffer* buffer, const uint16_t offset) {
     }
 }
 
-inline uint8_t ring_popb(ring_buffer* buffer) {
+static inline uint8_t ring_popb(ring_buffer* buffer) {
     const uint8_t data = buffer->buffer[buffer->tail];
     buffer->tail += 1;
     if (buffer->tail >= RAWBUF) {
@@ -36,7 +32,7 @@ inline uint8_t ring_popb(ring_buffer* buffer) {
     return data;
 }
 
-inline void ring_pushb(ring_buffer* buffer, const uint8_t data) {
+static inline void ring_pushb(ring_buffer* buffer, const uint8_t data) {
     buffer->buffer[buffer->head] = data;
     buffer->head += 1;
     if (buffer->head >= RAWBUF) {
@@ -44,19 +40,19 @@ inline void ring_pushb(ring_buffer* buffer, const uint8_t data) {
     }
 }
 
-inline void ring_pushs(ring_buffer* buffer, const char* data) {
+static inline void ring_pushs(ring_buffer* buffer, const char* data) {
     while (*data) {
       ring_pushb(buffer, *data++);
     }
 }
 
-inline void ring_push(ring_buffer* buffer, char* data, uint16_t size) {
+static inline void ring_push(ring_buffer* buffer, char* data, uint16_t size) {
     for (uint16_t i = 0; i < size; ++i) {
       ring_pushb(buffer, *(data + i));
     }
 }
 
-inline void ring_ring_move(ring_buffer* in_buffer, ring_buffer* out_buffer, const uint16_t size) {
+static inline void ring_ring_move(ring_buffer* in_buffer, ring_buffer* out_buffer, const uint16_t size) {
     uint8_t data;
     for (uint16_t i = 0; i < size; ++i) {
         data = ring_popb(in_buffer);
@@ -64,7 +60,7 @@ inline void ring_ring_move(ring_buffer* in_buffer, ring_buffer* out_buffer, cons
     }
 }
 
-inline void ring_ring_copy(ring_buffer* in_buffer, ring_buffer* out_buffer, const uint16_t size) {
+static inline void ring_ring_copy(ring_buffer* in_buffer, ring_buffer* out_buffer, const uint16_t size) {
     for (uint16_t i = 0; i < size; ++i) {
         uint8_t *data_ptr = ring_tail_offset(in_buffer, i + 1);
         ring_pushb(out_buffer, *data_ptr);

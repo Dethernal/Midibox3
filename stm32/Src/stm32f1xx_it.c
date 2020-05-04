@@ -23,6 +23,10 @@
 #include "stm32f1xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "PIC.h"
+#include "midi_in_handler.h"
+#include "midi.h"
+#include "iobuffers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -213,14 +217,36 @@ void TIM2_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM4 global interrupt.
+  */
+void TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM4_IRQn 0 */
+
+  /* USER CODE END TIM4_IRQn 0 */
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART1 global interrupt.
   */
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
-
+    if (LL_USART_IsActiveFlag_RXNE(USART1)) {
+      uint8_t data = LL_USART_ReceiveData8(USART1);
+      handle_midi_byte_in(data);
+    }
+    if  (LL_USART_IsActiveFlag_TXE(USART1)) {
+        if (direct_buffer.head != direct_buffer.tail) {
+            LL_USART_TransmitData8(USART1, ring_popb(&direct_buffer));
+        } else {
+            LL_USART_DisableIT_TXE(USART1);
+        }
+    }
     NVIC_ClearPendingIRQ(USART1_IRQn);
-    
     // 
 
   /* USER CODE END USART1_IRQn 0 */
@@ -228,6 +254,28 @@ void USART1_IRQHandler(void)
 
   /* USER CODE END USART1_IRQn 1 */
 }
+
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
+void USART2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART2_IRQn 0 */
+
+    if  (LL_USART_IsActiveFlag_TXE(USART2)) {
+        if (midi_out_buff.head != midi_out_buff.tail) {
+            LL_USART_TransmitData8(USART2, ring_popb(&midi_out_buff));
+        } else {
+            LL_USART_DisableIT_TXE(USART2);
+        }
+    }
+    NVIC_ClearPendingIRQ(USART2_IRQn);
+  /* USER CODE END USART2_IRQn 0 */
+  /* USER CODE BEGIN USART2_IRQn 1 */
+
+  /* USER CODE END USART2_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */
