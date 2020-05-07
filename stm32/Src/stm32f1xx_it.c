@@ -36,7 +36,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
- 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -46,7 +46,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-
+static const int8_t ROTARY_TABLE[16] = {
+    0, 1, -1, 0, -1, 0, 0 , 1, 1, 0, 0, -1, 0, -1, 1, 0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,7 +67,7 @@
 /* USER CODE END EV */
 
 /******************************************************************************/
-/*           Cortex-M3 Processor Interruption and Exception Handlers          */ 
+/*           Cortex-M3 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
 /**
   * @brief This function handles Non maskable interrupt.
@@ -188,7 +189,7 @@ void SysTick_Handler(void)
   /* USER CODE BEGIN SysTick_IRQn 0 */
 
   /* USER CODE END SysTick_IRQn 0 */
-  
+
   /* USER CODE BEGIN SysTick_IRQn 1 */
 
   /* USER CODE END SysTick_IRQn 1 */
@@ -202,14 +203,49 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line[9:5] interrupts.
+  */
+void EXTI9_5_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+
+    NVIC_DisableIRQ(EXTI9_5_IRQn);
+    NVIC_EnableIRQ(TIM4_IRQn);
+    LL_TIM_EnableIT_UPDATE(TIM4);
+    LL_TIM_EnableCounter(TIM4);
+
+  /* USER CODE END EXTI9_5_IRQn 0 */
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_5) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_5);
+    /* USER CODE BEGIN LL_EXTI_LINE_5 */
+    /* USER CODE END LL_EXTI_LINE_5 */
+  }
+  if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_6) != RESET)
+  {
+    LL_EXTI_ClearFlag_0_31(LL_EXTI_LINE_6);
+    /* USER CODE BEGIN LL_EXTI_LINE_6 */
+    /* USER CODE END LL_EXTI_LINE_6 */
+  }
+  /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+
+  NVIC_ClearPendingIRQ(EXTI9_5_IRQn);
+
+  /* USER CODE END EXTI9_5_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM2 global interrupt.
   */
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-    PIC_Update(true);
 
+    __disable_irq();
+    PIC_Update(false);
+    LL_TIM_ClearFlag_UPDATE(TIM2);
     NVIC_ClearPendingIRQ(TIM2_IRQn);
+    __enable_irq();
   /* USER CODE END TIM2_IRQn 0 */
   /* USER CODE BEGIN TIM2_IRQn 1 */
 
@@ -222,6 +258,24 @@ void TIM2_IRQHandler(void)
 void TIM4_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM4_IRQn 0 */
+
+    LL_TIM_DisableCounter(TIM4);
+    LL_TIM_SetCounter(TIM4, 0);
+    LL_TIM_DisableIT_UPDATE(TIM4);
+
+    uint32_t new_encoder_pos =
+            (LL_GPIO_IsInputPinSet(ENC_B_GPIO_Port, ENC_B_Pin) ? 1 : 0) +
+            (LL_GPIO_IsInputPinSet(ENC_A_GPIO_Port, ENC_A_Pin) ? 2 : 0);
+    if (new_encoder_pos != prev_encoder_pos) {
+        uint8_t idx = new_encoder_pos + (prev_encoder_pos << 2);
+        int8_t change = ROTARY_TABLE[idx];
+        change_max_volume(change);
+
+        prev_encoder_pos = new_encoder_pos;
+    }
+    LL_TIM_ClearFlag_UPDATE(TIM4);
+    NVIC_EnableIRQ(EXTI9_5_IRQn);
+    NVIC_ClearPendingIRQ(TIM4_IRQn);
 
   /* USER CODE END TIM4_IRQn 0 */
   /* USER CODE BEGIN TIM4_IRQn 1 */
@@ -239,15 +293,19 @@ void USART1_IRQHandler(void)
       uint8_t data = LL_USART_ReceiveData8(USART1);
       handle_midi_byte_in(data);
     }
-    if  (LL_USART_IsActiveFlag_TXE(USART1)) {
-        if (direct_buffer.head != direct_buffer.tail) {
+    if (direct_buffer.head != direct_buffer.tail) {
+        if (LL_USART_IsActiveFlag_TXE(USART1)) {
             LL_USART_TransmitData8(USART1, ring_popb(&direct_buffer));
-        } else {
-            LL_USART_DisableIT_TXE(USART1);
+            if (direct_buffer.head != direct_buffer.tail) {
+                LL_USART_EnableIT_TXE(USART1);
+            }
         }
+    } else {
+        LL_USART_DisableIT_TXE(USART1);
+        LL_USART_ClearFlag_TC(USART1);
     }
     NVIC_ClearPendingIRQ(USART1_IRQn);
-    // 
+    //
 
   /* USER CODE END USART1_IRQn 0 */
   /* USER CODE BEGIN USART1_IRQn 1 */
@@ -261,15 +319,20 @@ void USART1_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
-
-    if  (LL_USART_IsActiveFlag_TXE(USART2)) {
-        if (midi_out_buff.head != midi_out_buff.tail) {
+    __disable_irq();
+    if (midi_out_buff.head != midi_out_buff.tail) {
+        if (LL_USART_IsActiveFlag_TXE(USART2)) {
             LL_USART_TransmitData8(USART2, ring_popb(&midi_out_buff));
-        } else {
-            LL_USART_DisableIT_TXE(USART2);
+            if (midi_out_buff.head != midi_out_buff.tail) {
+                LL_USART_EnableIT_TXE(USART2);
+            }
         }
+    } else {
+        LL_USART_DisableIT_TXE(USART2);
+        LL_USART_ClearFlag_TC(USART2);
     }
     NVIC_ClearPendingIRQ(USART2_IRQn);
+    __enable_irq();
   /* USER CODE END USART2_IRQn 0 */
   /* USER CODE BEGIN USART2_IRQn 1 */
 

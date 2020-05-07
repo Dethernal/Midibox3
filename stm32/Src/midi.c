@@ -68,7 +68,7 @@ const uint8_t MIDI_evt_len[256] = {
 #define MAX_TRACKED_CHANNELS 16
 #define MAX_TRACKED_NOTES 8
 
-static const char* MIDI_welcome_msg = "\xf0\x41\x10\x16\x12\x20\x00\x00  *** HardMPU ***   \x13\xf7";	// message to show on MT-32 display
+static const uint8_t MIDI_welcome_msg[30] = "\xf0\x41\x10\x16\x12\x20\x00\x00  *** HardMPU ***   \x13\xf7";	// message to show on MT-32 display
 
 static uint8_t MIDI_note_off[3] = { 0x80,0x00,0x00 }; /* SOFTMPU */
 
@@ -106,17 +106,26 @@ volatile uint16_t MIDI_sysex_delaytime;
 
 static void PlayMsg(uint8_t* msg, uint16_t len)
 {
-    // Enqueue data and start transmission if it not already started
+    // Enqueue data and start transmission if it is not already started
     ring_push(&midi_out_buff, (char*) msg, len);
     if (LL_USART_IsActiveFlag_TXE(USART2)) {
         LL_USART_TransmitData8(USART2, ring_popb(&midi_out_buff));
         LL_USART_EnableIT_TXE(USART2);
     }
+
 }
 
+uint32_t dbg = 0;
+
 static void send_midi_byte_now(uint8_t byte) {
-    while (!LL_USART_IsActiveFlag_TXE(USART2));
+    LL_USART_Enable(USART2);
+    while (!LL_USART_IsActiveFlag_TXE(USART2)) {
+        dbg += 1;
+    }
     LL_USART_TransmitData8(USART2, byte);
+    while (!LL_USART_IsActiveFlag_TXE(USART2)){
+        dbg += 1;
+    }
 }
 
 /* SOFTMPU: Fake "All Notes Off" for Roland RA-50 */
@@ -202,69 +211,6 @@ void MIDI_RawOutByte(uint8_t data) {
 	}
 }
 
-void send_midi_byte() {
-	if (midi_out_buff.head == midi_out_buff.tail) return;	// nothing to send
-    if (LL_USART_IsActiveFlag_TXE(USART2)) return;
-    //if (bit_is_clear(UCSR0A, UDRE0)) return;	// can't send yet
-	//loop_until_bit_is_set(UCSR0A, UDRE0);
-	if (midi.sysex.delay && MIDI_sysex_delaytime) {	// still waiting for sysex delay
-        LL_mDelay(1);
-        //_delay_us(320);
-		return;
-	}
-    uint8_t data = ring_popb(&midi_out_buff);
-
-	if (midi.sysex.status==0xf0) {
-		if (!(data&0x80)) {
-			if (midi.sysex.used==SYSEX_SIZE) {
-				midi.sysex.used = 0;
-				midi.sysex.usedbufs++;
-            }
-            LL_USART_TransmitData8(USART2, data);
-            //UDR0 = data;
-			midi.sysex.buf[midi.sysex.used++] = data;
-			return;
-		} else {
-            LL_USART_TransmitData8(USART2, 0xf7);
-            //UDR0 = 0xf7;
-			midi.sysex.buf[midi.sysex.used++] = 0xf7;
-			midi.sysex.status = 0xf7;
-				/*LOG(LOG_ALL,LOG_NORMAL)("Play sysex; address:%02X %02X %02X, length:%4d, delay:%3d", midi.sysex.buf[5], midi.sysex.buf[6], midi.sysex.buf[7], midi.sysex.used, midi.sysex.delay);*/
-			if (midi.sysex.delay) {
-				if (midi.sysex.usedbufs == 0 && midi.sysex.buf[5] == 0x7F) {
-					/*midi.sysex.delay = 290;*/ /* SOFTMPU */ // All Parameters reset
-					MIDI_sysex_delaytime = 290*(RTCFREQ/1000);
-                } else if (midi.sysex.usedbufs == 0 && midi.sysex.buf[5] == 0x10 && midi.sysex.buf[6] == 0x00 && midi.sysex.buf[7] == 0x04) {
-					/*midi.sysex.delay = 145;*/ /* SOFTMPU */ // Viking Child
-					MIDI_sysex_delaytime = 145*(RTCFREQ/1000);
-                } else if (midi.sysex.usedbufs == 0 && midi.sysex.buf[5] == 0x10 && midi.sysex.buf[6] == 0x00 && midi.sysex.buf[7] == 0x01) {
-					/*midi.sysex.delay = 30;*/ /* SOFTMPU */ // Dark Sun 1
-					MIDI_sysex_delaytime = 30*(RTCFREQ/1000);
-                } else MIDI_sysex_delaytime = ((((midi.sysex.usedbufs*SYSEX_SIZE)+midi.sysex.used)/2)+2)*(RTCFREQ/1000); /*(uint16_t)(((float)(midi.sysex.used) * 1.25f) * 1000.0f / 3125.0f) + 2;
-                midi.sysex.start = GetTicks();*/ /* SOFTMPU */
-			}
-			return;
-			/*LOG(LOG_ALL,LOG_NORMAL)("Sysex message size %d",midi.sysex.used);*/ /* SOFTMPU */
-			/*if (CaptureState & CAPTURE_MIDI) {
-				CAPTURE_AddMidi( true, midi.sysex.used-1, &midi.sysex.buf[1]);
-			}*/ /* SOFTMPU */
-		}
-	}
-	if (data&0x80) {
-		midi.sysex.status=data;
-		if (midi.sysex.status==0xf0) {
-            LL_USART_TransmitData8(USART2, 0xf0);
-            //UDR0 = 0xf0;
-			midi.sysex.used=1;
-			midi.sysex.buf[0]=0xf0;
-            midi.sysex.usedbufs=0;
-			return;
-		}
-	}
-    LL_USART_TransmitData8(USART2, data);
-    //UDR0 = data;	// not sysex
-}
-
 bool MIDI_Available(void)  {
 	return midi.available;
 }
@@ -284,18 +230,21 @@ void MIDI_Init(bool delaysysex,bool fakeallnotesoff){
     ring_init(&midi_out_buff);
 		
     /* SOFTMPU: Display welcome message on MT-32 */
-    for (i=0;i<30;i++)
+    __disable_irq();
+    for (i=0;i<sizeof(MIDI_welcome_msg);i++)
     {
-		send_midi_byte_now(MIDI_welcome_msg[i]);
+        send_midi_byte_now(MIDI_welcome_msg[i]);
     }
-		
+
+    //PlayMsg((uint8_t *) MIDI_welcome_msg, sizeof(MIDI_welcome_msg));
+
 	/* HardMPU: Turn off any stuck notes */
-	for (i=0xb0;i<0xc0;i++)
-	{
-		send_midi_byte_now(i);
-		send_midi_byte_now(0x7b);
-		send_midi_byte_now(0);
-	}
+    for (i=0xb0;i<0xc0;i++)
+    {
+        send_midi_byte_now(i);
+        send_midi_byte_now(0x7b);
+        send_midi_byte_now(0);
+    }
 		
     /* SOFTMPU: Init note tracking */
     for (i=0;i<MAX_TRACKED_CHANNELS;i++)
@@ -303,4 +252,9 @@ void MIDI_Init(bool delaysysex,bool fakeallnotesoff){
 		tracked_channels[i].used=0;
 		tracked_channels[i].next=0;
     }
+
+    while(!LL_USART_IsActiveFlag_TC(USART2));
+    LL_USART_ClearFlag_TC(USART2);
+
+    __enable_irq();
 }

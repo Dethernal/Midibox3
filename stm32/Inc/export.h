@@ -34,7 +34,6 @@ void MPU401_WriteCommand(uint8_t val);
 uint8_t MPU401_ReadData(void);
 void MPU401_WriteData(uint8_t val);
 uint8_t QueueUsed();
-void send_midi_byte();
 
 #define EXPORT_H
 #endif

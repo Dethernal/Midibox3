@@ -48,6 +48,8 @@
 
 /* USER CODE BEGIN PV */
 
+uint32_t prev_encoder_pos;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -56,7 +58,6 @@ static void MX_GPIO_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_TIM2_Init(void);
-static void MX_TIM3_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
@@ -110,7 +111,6 @@ int main(void)
   MX_USART1_UART_Init();
   MX_USART2_UART_Init();
   MX_TIM2_Init();
-  MX_TIM3_Init();
   MX_TIM4_Init();
 
   /* Initialize interrupts */
@@ -118,15 +118,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
     //LL_GPIO_ResetOutputPin(MIDI_WB_CON_GPIO_Port, MIDI_WB_CON_Pin);
-    LL_GPIO_ResetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
 
-    //LL_USART_EnableIT_TXE(USART1);
-    LL_USART_EnableIT_RXNE(USART1);
-    //LL_USART_EnableIT_TXE(USART2);
-    NVIC_ClearPendingIRQ(USART1_IRQn);
-    NVIC_ClearPendingIRQ(USART2_IRQn);
 
-    MPU401_Init();
+
 
     current_intercept_mode = VOLUME_VELOCITY;
     current_alteration_mode = VOLUME_MULTIPLY;
@@ -137,25 +131,54 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-    for (int i = 0; i < 5; ++i) {
-        LL_GPIO_SetOutputPin(MIDI_OUT_CON_GPIO_Port, MIDI_OUT_CON_Pin);
-        LL_mDelay(500);
-        LL_GPIO_ResetOutputPin(MIDI_OUT_CON_GPIO_Port, MIDI_OUT_CON_Pin);
-        LL_mDelay(500);
-    }
-    LL_GPIO_SetOutputPin(MIDI_OUT_CON_GPIO_Port, MIDI_OUT_CON_Pin);
-    LL_GPIO_SetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
+    prev_encoder_pos =
+            (LL_GPIO_IsInputPinSet(ENC_B_GPIO_Port, ENC_B_Pin) ? 1 : 0) +
+            (LL_GPIO_IsInputPinSet(ENC_A_GPIO_Port, ENC_A_Pin) ? 2 : 0);
+
+    LL_GPIO_ResetOutputPin(MIDI_OUT_CON_GPIO_Port, MIDI_OUT_CON_Pin);
     LL_GPIO_ResetOutputPin(MIDI_WB_CON_GPIO_Port, MIDI_WB_CON_Pin);
+
+    LL_GPIO_ResetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
+    LL_mDelay(1000);
+    LL_GPIO_SetOutputPin(WBRESET_GPIO_Port, WBRESET_Pin);
+
+
+    NVIC_DisableIRQ(USART1_IRQn);
+    NVIC_DisableIRQ(USART2_IRQn);
+    MPU401_Init();
+
+    LL_USART_ClearFlag_TC(USART1);
+    LL_USART_ClearFlag_TC(USART2);
+
+    LL_USART_DisableIT_TXE(USART1);
+    LL_USART_DisableIT_TXE(USART2);
+
+    NVIC_ClearPendingIRQ(USART1_IRQn);
+    NVIC_ClearPendingIRQ(USART2_IRQn);
+
+    NVIC_EnableIRQ(USART1_IRQn);
+    NVIC_EnableIRQ(USART2_IRQn);
+
+    LL_USART_EnableIT_RXNE(USART1);
+
+    LL_USART_EnableIT_TC(USART1);
+    LL_USART_EnableIT_TC(USART2);
+
+    LL_TIM_ClearFlag_UPDATE(TIM2);
+    LL_TIM_ClearFlag_UPDATE(TIM4);
+
     LL_TIM_EnableIT_UPDATE(TIM2);
+    LL_TIM_EnableIT_UPDATE(TIM4);
 
+    LL_TIM_EnableCounter(TIM2);
 
+    while(1);
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
   /* USER CODE END 3 */
-
+}
 
 /**
   * @brief System Clock Configuration
@@ -207,10 +230,10 @@ void SystemClock_Config(void)
 static void MX_NVIC_Init(void)
 {
   /* USART1_IRQn interrupt configuration */
-  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(USART1_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),1, 0));
   NVIC_EnableIRQ(USART1_IRQn);
   /* TIM2_IRQn interrupt configuration */
-  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),3, 0));
   NVIC_EnableIRQ(TIM2_IRQn);
 }
 
@@ -234,9 +257,9 @@ static void MX_TIM2_Init(void)
   /* USER CODE BEGIN TIM2_Init 1 */
 
   /* USER CODE END TIM2_Init 1 */
-  TIM_InitStruct.Prescaler = 0;
+  TIM_InitStruct.Prescaler = 9;
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 10000;
+  TIM_InitStruct.Autoreload = 999;
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
   LL_TIM_Init(TIM2, &TIM_InitStruct);
   LL_TIM_EnableARRPreload(TIM2);
@@ -246,41 +269,6 @@ static void MX_TIM2_Init(void)
   /* USER CODE BEGIN TIM2_Init 2 */
 
   /* USER CODE END TIM2_Init 2 */
-
-}
-
-/**
-  * @brief TIM3 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM3_Init(void)
-{
-
-  /* USER CODE BEGIN TIM3_Init 0 */
-
-  /* USER CODE END TIM3_Init 0 */
-
-  LL_TIM_InitTypeDef TIM_InitStruct = {0};
-
-  /* Peripheral clock enable */
-  LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM3);
-
-  /* USER CODE BEGIN TIM3_Init 1 */
-
-  /* USER CODE END TIM3_Init 1 */
-  TIM_InitStruct.Prescaler = 0;
-  TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 32;
-  TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV2;
-  LL_TIM_Init(TIM3, &TIM_InitStruct);
-  LL_TIM_EnableARRPreload(TIM3);
-  LL_TIM_SetClockSource(TIM3, LL_TIM_CLOCKSOURCE_INTERNAL);
-  LL_TIM_SetTriggerOutput(TIM3, LL_TIM_TRGO_RESET);
-  LL_TIM_DisableMasterSlaveMode(TIM3);
-  /* USER CODE BEGIN TIM3_Init 2 */
-
-  /* USER CODE END TIM3_Init 2 */
 
 }
 
@@ -302,15 +290,15 @@ static void MX_TIM4_Init(void)
   LL_APB1_GRP1_EnableClock(LL_APB1_GRP1_PERIPH_TIM4);
 
   /* TIM4 interrupt Init */
-  NVIC_SetPriority(TIM4_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(TIM4_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),5, 0));
   NVIC_EnableIRQ(TIM4_IRQn);
 
   /* USER CODE BEGIN TIM4_Init 1 */
 
   /* USER CODE END TIM4_Init 1 */
-  TIM_InitStruct.Prescaler = 0;
+  TIM_InitStruct.Prescaler = 3999;
   TIM_InitStruct.CounterMode = LL_TIM_COUNTERMODE_UP;
-  TIM_InitStruct.Autoreload = 19319;
+  TIM_InitStruct.Autoreload = 6;
   TIM_InitStruct.ClockDivision = LL_TIM_CLOCKDIVISION_DIV1;
   LL_TIM_Init(TIM4, &TIM_InitStruct);
   LL_TIM_EnableARRPreload(TIM4);
@@ -405,13 +393,13 @@ static void MX_USART2_UART_Init(void)
   LL_GPIO_Init(TX2_GPIO_Port, &GPIO_InitStruct);
 
   /* USART2 interrupt Init */
-  NVIC_SetPriority(USART2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
+  NVIC_SetPriority(USART2_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),2, 0));
   NVIC_EnableIRQ(USART2_IRQn);
 
   /* USER CODE BEGIN USART2_Init 1 */
 
   /* USER CODE END USART2_Init 1 */
-  USART_InitStruct.BaudRate = 115200;
+  USART_InitStruct.BaudRate = 31250;
   USART_InitStruct.DataWidth = LL_USART_DATAWIDTH_8B;
   USART_InitStruct.StopBits = LL_USART_STOPBITS_1;
   USART_InitStruct.Parity = LL_USART_PARITY_NONE;
@@ -460,14 +448,7 @@ static void MX_GPIO_Init(void)
   LL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /**/
-  GPIO_InitStruct.Pin = WBRESET_Pin;
-  GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
-  GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_PUSHPULL;
-  LL_GPIO_Init(WBRESET_GPIO_Port, &GPIO_InitStruct);
-
-  /**/
-  GPIO_InitStruct.Pin = MIDI_WB_CON_Pin|MIDI_OUT_CON_Pin;
+  GPIO_InitStruct.Pin = WBRESET_Pin|MIDI_WB_CON_Pin|MIDI_OUT_CON_Pin;
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
   GPIO_InitStruct.Speed = LL_GPIO_SPEED_FREQ_LOW;
   GPIO_InitStruct.OutputType = LL_GPIO_OUTPUT_OPENDRAIN;
@@ -512,6 +493,10 @@ static void MX_GPIO_Init(void)
 
   /**/
   LL_GPIO_SetPinMode(ENC_B_GPIO_Port, ENC_B_Pin, LL_GPIO_MODE_FLOATING);
+
+  /* EXTI interrupt init*/
+  NVIC_SetPriority(EXTI9_5_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),4, 0));
+  NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 }
 

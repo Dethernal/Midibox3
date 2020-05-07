@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccHawOes.s 			page 1
+ARM GAS  /tmp/ccB7qQbb.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   32:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *
   33:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   ******************************************************************************
   34:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   */
-ARM GAS  /tmp/ccHawOes.s 			page 2
+ARM GAS  /tmp/ccB7qQbb.s 			page 2
 
 
   35:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   89:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** 
   90:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** /**
   91:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @}
-ARM GAS  /tmp/ccHawOes.s 			page 3
+ARM GAS  /tmp/ccB7qQbb.s 			page 3
 
 
   92:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  146:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** #endif
  147:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** #if defined(EXTI_IMR_IM26)
  148:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** #define LL_EXTI_LINE_26                EXTI_IMR_IM26          /*!< Extended line 26 */
-ARM GAS  /tmp/ccHawOes.s 			page 4
+ARM GAS  /tmp/ccB7qQbb.s 			page 4
 
 
  149:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** #endif
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  203:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** 
  204:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** 
  205:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** /**
-ARM GAS  /tmp/ccHawOes.s 			page 5
+ARM GAS  /tmp/ccB7qQbb.s 			page 5
 
 
  206:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @}
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  260:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_2
  261:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_3
  262:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_4
-ARM GAS  /tmp/ccHawOes.s 			page 6
+ARM GAS  /tmp/ccB7qQbb.s 			page 6
 
 
  263:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_5
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   56              		@ sp needed
   57 001a 80BC     		pop	{r7}
   58              	.LCFI5:
-ARM GAS  /tmp/ccHawOes.s 			page 7
+ARM GAS  /tmp/ccB7qQbb.s 			page 7
 
 
   59              		.cfi_restore 7
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   81              		@ frame_needed = 1, uses_anonymous_args = 0
   82              		@ link register save eliminated.
   83 0000 80B4     		push	{r7}
-ARM GAS  /tmp/ccHawOes.s 			page 8
+ARM GAS  /tmp/ccB7qQbb.s 			page 8
 
 
   84              	.LCFI6:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  328:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *       Bits are set automatically at Power on.
  329:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @rmtoll IMR         IMx           LL_EXTI_IsEnabledIT_0_31
  330:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @param  ExtiLine This parameter can be one of the following values:
-ARM GAS  /tmp/ccHawOes.s 			page 9
+ARM GAS  /tmp/ccB7qQbb.s 			page 9
 
 
  331:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  385:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_12
  386:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_13
  387:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_14
-ARM GAS  /tmp/ccHawOes.s 			page 10
+ARM GAS  /tmp/ccB7qQbb.s 			page 10
 
 
  388:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_15
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  172 0020 00040140 		.word	1073808384
  173              		.cfi_endproc
  174              	.LFE66:
-ARM GAS  /tmp/ccHawOes.s 			page 11
+ARM GAS  /tmp/ccB7qQbb.s 			page 11
 
 
  176              		.section	.text.LL_EXTI_DisableEvent_0_31,"ax",%progbits
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  199              		.cfi_def_cfa_register 7
  200 0006 7860     		str	r0, [r7, #4]
  434:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   CLEAR_BIT(EXTI->EMR, ExtiLine);
-ARM GAS  /tmp/ccHawOes.s 			page 12
+ARM GAS  /tmp/ccB7qQbb.s 			page 12
 
 
  201              		.loc 1 434 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  453:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_11
  454:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_12
  455:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_13
-ARM GAS  /tmp/ccHawOes.s 			page 13
+ARM GAS  /tmp/ccB7qQbb.s 			page 13
 
 
  456:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_14
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  510:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_19
  511:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @note   Please check each device line mapping for EXTI Line availability
  512:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @retval None
-ARM GAS  /tmp/ccHawOes.s 			page 14
+ARM GAS  /tmp/ccB7qQbb.s 			page 14
 
 
  513:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   */
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  288              		.fpu softvfp
  290              	LL_EXTI_DisableRisingTrig_0_31:
  291              	.LFB70:
-ARM GAS  /tmp/ccHawOes.s 			page 15
+ARM GAS  /tmp/ccB7qQbb.s 			page 15
 
 
  519:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  308              		.loc 1 556 0
  309 0008 054B     		ldr	r3, .L17
  310 000a 9A68     		ldr	r2, [r3, #8]
-ARM GAS  /tmp/ccHawOes.s 			page 16
+ARM GAS  /tmp/ccB7qQbb.s 			page 16
 
 
  311 000c 7B68     		ldr	r3, [r7, #4]
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  578:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_13
  579:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_14
  580:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_15
-ARM GAS  /tmp/ccHawOes.s 			page 17
+ARM GAS  /tmp/ccB7qQbb.s 			page 17
 
 
  581:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *         @arg @ref LL_EXTI_LINE_16
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  635:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** {
  346              		.loc 1 635 0
  347              		.cfi_startproc
-ARM GAS  /tmp/ccHawOes.s 			page 18
+ARM GAS  /tmp/ccB7qQbb.s 			page 18
 
 
  348              		@ args = 0, pretend = 0, frame = 8
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  641:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @brief  Disable ExtiLine Falling Edge Trigger for Lines in range 0 to 31
  642:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   * @note The configurable wakeup lines are edge-triggered. No glitch must be
  643:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *       generated on these lines. If a Falling edge on a configurable interrupt
-ARM GAS  /tmp/ccHawOes.s 			page 19
+ARM GAS  /tmp/ccB7qQbb.s 			page 19
 
 
  644:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h ****   *       line occurs during a write operation in the EXTI_FTSR register, the
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  422 0014 CB60     		str	r3, [r1, #12]
  675:Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_exti.h **** }
  423              		.loc 1 675 0
-ARM GAS  /tmp/ccHawOes.s 			page 20
+ARM GAS  /tmp/ccB7qQbb.s 			page 20
 
 
  424 0016 00BF     		nop
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   26:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
   27:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
   28:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-ARM GAS  /tmp/ccHawOes.s 			page 21
+ARM GAS  /tmp/ccB7qQbb.s 			page 21
 
 
   29:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
   83:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   * @{
   84:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   */
   85:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c **** 
-ARM GAS  /tmp/ccHawOes.s 			page 22
+ARM GAS  /tmp/ccB7qQbb.s 			page 22
 
 
   86:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c **** /** @addtogroup EXTI_LL_EF_Init
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  108:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   /* Pending register clear */
  109:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   LL_EXTI_WriteReg(PR,    0x000FFFFFU);
  487              		.loc 2 109 0
-ARM GAS  /tmp/ccHawOes.s 			page 23
+ARM GAS  /tmp/ccB7qQbb.s 			page 23
 
 
  488 0022 044B     		ldr	r3, .L27
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  531 0002 84B0     		sub	sp, sp, #16
  532              	.LCFI53:
  533              		.cfi_def_cfa_offset 24
-ARM GAS  /tmp/ccHawOes.s 			page 24
+ARM GAS  /tmp/ccB7qQbb.s 			page 24
 
 
  534 0004 00AF     		add	r7, sp, #0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  567 0038 1B68     		ldr	r3, [r3]
  568 003a 1846     		mov	r0, r3
  569 003c FFF7FEFF 		bl	LL_EXTI_EnableIT_0_31
-ARM GAS  /tmp/ccHawOes.s 			page 25
+ARM GAS  /tmp/ccB7qQbb.s 			page 25
 
 
  144:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****           break;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  607 0076 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
  608 0078 002B     		cmp	r3, #0
  609 007a 37D0     		beq	.L45
-ARM GAS  /tmp/ccHawOes.s 			page 26
+ARM GAS  /tmp/ccB7qQbb.s 			page 26
 
 
  161:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****       {
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  647 00ba 1B68     		ldr	r3, [r3]
  648 00bc 1846     		mov	r0, r3
  649 00be FFF7FEFF 		bl	LL_EXTI_EnableRisingTrig_0_31
-ARM GAS  /tmp/ccHawOes.s 			page 27
+ARM GAS  /tmp/ccB7qQbb.s 			page 27
 
 
  178:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****             LL_EXTI_EnableFallingTrig_0_31(EXTI_InitStruct->Line_0_31);
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  685              	.LCFI55:
  686              		.cfi_def_cfa_offset 8
  687 00f4 BD46     		mov	sp, r7
-ARM GAS  /tmp/ccHawOes.s 			page 28
+ARM GAS  /tmp/ccB7qQbb.s 			page 28
 
 
  688              	.LCFI56:
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  207:Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_ll_exti.c ****   EXTI_InitStruct->Trigger        = LL_EXTI_TRIGGER_FALLING;
  733              		.loc 2 207 0
  734 001a 7B68     		ldr	r3, [r7, #4]
-ARM GAS  /tmp/ccHawOes.s 			page 29
+ARM GAS  /tmp/ccB7qQbb.s 			page 29
 
 
  735 001c 0222     		movs	r2, #2
@@ -1708,42 +1708,42 @@ ARM GAS  /tmp/ccHawOes.s 			page 1
  759              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
  760              		.file 7 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
  761              		.file 8 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h"
-ARM GAS  /tmp/ccHawOes.s 			page 30
+ARM GAS  /tmp/ccB7qQbb.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 stm32f1xx_ll_exti.c
-     /tmp/ccHawOes.s:16     .text.LL_EXTI_EnableIT_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:22     .text.LL_EXTI_EnableIT_0_31:0000000000000000 LL_EXTI_EnableIT_0_31
-     /tmp/ccHawOes.s:65     .text.LL_EXTI_EnableIT_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:70     .text.LL_EXTI_DisableIT_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:76     .text.LL_EXTI_DisableIT_0_31:0000000000000000 LL_EXTI_DisableIT_0_31
-     /tmp/ccHawOes.s:119    .text.LL_EXTI_DisableIT_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:124    .text.LL_EXTI_EnableEvent_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:130    .text.LL_EXTI_EnableEvent_0_31:0000000000000000 LL_EXTI_EnableEvent_0_31
-     /tmp/ccHawOes.s:172    .text.LL_EXTI_EnableEvent_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:177    .text.LL_EXTI_DisableEvent_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:183    .text.LL_EXTI_DisableEvent_0_31:0000000000000000 LL_EXTI_DisableEvent_0_31
-     /tmp/ccHawOes.s:226    .text.LL_EXTI_DisableEvent_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:231    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:237    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000000 LL_EXTI_EnableRisingTrig_0_31
-     /tmp/ccHawOes.s:279    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:284    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:290    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000000 LL_EXTI_DisableRisingTrig_0_31
-     /tmp/ccHawOes.s:333    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:338    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:344    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000000 LL_EXTI_EnableFallingTrig_0_31
-     /tmp/ccHawOes.s:386    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:391    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000000 $t
-     /tmp/ccHawOes.s:397    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000000 LL_EXTI_DisableFallingTrig_0_31
-     /tmp/ccHawOes.s:440    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000020 $d
-     /tmp/ccHawOes.s:445    .text.LL_EXTI_DeInit:0000000000000000 $t
-     /tmp/ccHawOes.s:452    .text.LL_EXTI_DeInit:0000000000000000 LL_EXTI_DeInit
-     /tmp/ccHawOes.s:507    .text.LL_EXTI_DeInit:0000000000000034 $d
-     /tmp/ccHawOes.s:513    .text.LL_EXTI_Init:0000000000000000 $t
-     /tmp/ccHawOes.s:520    .text.LL_EXTI_Init:0000000000000000 LL_EXTI_Init
-     /tmp/ccHawOes.s:696    .text.LL_EXTI_StructInit:0000000000000000 $t
-     /tmp/ccHawOes.s:703    .text.LL_EXTI_StructInit:0000000000000000 LL_EXTI_StructInit
+     /tmp/ccB7qQbb.s:16     .text.LL_EXTI_EnableIT_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:22     .text.LL_EXTI_EnableIT_0_31:0000000000000000 LL_EXTI_EnableIT_0_31
+     /tmp/ccB7qQbb.s:65     .text.LL_EXTI_EnableIT_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:70     .text.LL_EXTI_DisableIT_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:76     .text.LL_EXTI_DisableIT_0_31:0000000000000000 LL_EXTI_DisableIT_0_31
+     /tmp/ccB7qQbb.s:119    .text.LL_EXTI_DisableIT_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:124    .text.LL_EXTI_EnableEvent_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:130    .text.LL_EXTI_EnableEvent_0_31:0000000000000000 LL_EXTI_EnableEvent_0_31
+     /tmp/ccB7qQbb.s:172    .text.LL_EXTI_EnableEvent_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:177    .text.LL_EXTI_DisableEvent_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:183    .text.LL_EXTI_DisableEvent_0_31:0000000000000000 LL_EXTI_DisableEvent_0_31
+     /tmp/ccB7qQbb.s:226    .text.LL_EXTI_DisableEvent_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:231    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:237    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000000 LL_EXTI_EnableRisingTrig_0_31
+     /tmp/ccB7qQbb.s:279    .text.LL_EXTI_EnableRisingTrig_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:284    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:290    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000000 LL_EXTI_DisableRisingTrig_0_31
+     /tmp/ccB7qQbb.s:333    .text.LL_EXTI_DisableRisingTrig_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:338    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:344    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000000 LL_EXTI_EnableFallingTrig_0_31
+     /tmp/ccB7qQbb.s:386    .text.LL_EXTI_EnableFallingTrig_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:391    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000000 $t
+     /tmp/ccB7qQbb.s:397    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000000 LL_EXTI_DisableFallingTrig_0_31
+     /tmp/ccB7qQbb.s:440    .text.LL_EXTI_DisableFallingTrig_0_31:0000000000000020 $d
+     /tmp/ccB7qQbb.s:445    .text.LL_EXTI_DeInit:0000000000000000 $t
+     /tmp/ccB7qQbb.s:452    .text.LL_EXTI_DeInit:0000000000000000 LL_EXTI_DeInit
+     /tmp/ccB7qQbb.s:507    .text.LL_EXTI_DeInit:0000000000000034 $d
+     /tmp/ccB7qQbb.s:513    .text.LL_EXTI_Init:0000000000000000 $t
+     /tmp/ccB7qQbb.s:520    .text.LL_EXTI_Init:0000000000000000 LL_EXTI_Init
+     /tmp/ccB7qQbb.s:696    .text.LL_EXTI_StructInit:0000000000000000 $t
+     /tmp/ccB7qQbb.s:703    .text.LL_EXTI_StructInit:0000000000000000 LL_EXTI_StructInit
                            .group:0000000000000000 wm4.0.3946371c97d0a222db2c40aaaa70ce2e
                            .group:0000000000000000 wm4.stm32f1xx.h.57.c2a10934f4c6830aeb7e4997f02806f1
                            .group:0000000000000000 wm4.stm32f103xb.h.56.66305a77cea9d5300aac997a78930076

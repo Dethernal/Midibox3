@@ -103,8 +103,10 @@ void Error_Handler(void);
 #define RX1_GPIO_Port GPIOA
 #define ENC_A_Pin LL_GPIO_PIN_5
 #define ENC_A_GPIO_Port GPIOB
+#define ENC_A_EXTI_IRQn EXTI9_5_IRQn
 #define ENC_B_Pin LL_GPIO_PIN_6
 #define ENC_B_GPIO_Port GPIOB
+#define ENC_B_EXTI_IRQn EXTI9_5_IRQn
 #ifndef NVIC_PRIORITYGROUP_0
 #define NVIC_PRIORITYGROUP_0         ((uint32_t)0x00000007) /*!< 0 bit  for pre-emption priority,
                                                                  4 bits for subpriority */
@@ -121,6 +123,8 @@ void Error_Handler(void);
 
 #define INTERNAL_USART USART1
 #define EXTERNAL_USART USART2
+
+extern uint32_t prev_encoder_pos;
 
 /* USER CODE END Private defines */
 

@@ -15,8 +15,8 @@ build/main.o: Src/main.c Inc/main.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_tim.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usart.h \
  Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_gpio.h Inc/export.h \
- Inc/utils.h Inc/iobuffers.h Inc/midi_in_handler.h Inc/export.h \
- Inc/iobuffers.h Inc/midi.h
+ Inc/utils.h Inc/iobuffers.h Inc/main.h Inc/midi_in_handler.h \
+ Inc/export.h Inc/iobuffers.h Inc/midi.h
 
 Inc/main.h:
 
@@ -61,6 +61,8 @@ Inc/export.h:
 Inc/utils.h:
 
 Inc/iobuffers.h:
+
+Inc/main.h:
 
 Inc/midi_in_handler.h:
 

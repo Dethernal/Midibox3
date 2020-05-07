@@ -589,16 +589,16 @@ void MPU401_Init()
 	PIC_Init();
 
 	/* Initialise MIDI handler */
-        MIDI_Init(CONFIG_SYSEXDELAY,CONFIG_FAKEALLNOTESOFF);
+    MIDI_Init(CONFIG_SYSEXDELAY,CONFIG_FAKEALLNOTESOFF);
 	if (!MIDI_Available()) return;
 
 	mpu.queue_used=0;
 	mpu.queue_pos=0;
-	mpu.mode=M_UART;
+    mpu.mode=M_UART;
+    mpu.intelligent=true; /* Default is on */
 
-        mpu.intelligent=true; /* Default is on */
-	if (!mpu.intelligent) return;
+    if (!mpu.intelligent) return;
 
-        /* SOFTMPU: Moved IRQ 9 handler init to asm */
+    /* SOFTMPU: Moved IRQ 9 handler init to asm */
 	MPU401_Reset();
 }
