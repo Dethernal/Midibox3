@@ -14,6 +14,9 @@ uint8_t new_max_volume;
 sysex_nil_cmd_t current_command;
 uint8_t skip = 0;
 
+uint8_t dbg_in[256] = {0};
+uint8_t dbg_in_ptr = 0;
+
 ring_buffer direct_buffer = {{0}, 0, 0};
 
 static void DirectWrite(uint8_t data) {
@@ -27,6 +30,12 @@ volatile char capture_dbg_sysex[256];
 volatile uint8_t dbg_ptr = 0;
 
 void handle_midi_byte_in(uint8_t data) {
+    dbg_in[dbg_in_ptr] = data;
+    if (dbg_ptr >= 255) {
+        dbg_in_ptr = 0;
+    } else {
+        dbg_in_ptr += 1;
+    }
 
     switch (input_state) {
     case INPUT_SKIP:
@@ -82,9 +91,7 @@ void handle_midi_byte_in(uint8_t data) {
         } else {
             input_state = INPUT_SYSEX;
 
-            MPU401_WriteCommand(0xf0);
             MPU401_WriteData(0xf0);
-            MPU401_WriteCommand(data);
             MPU401_WriteData(data);
             DirectWrite(0xf0);
             DirectWrite(data);
@@ -132,7 +139,6 @@ void handle_midi_byte_in(uint8_t data) {
         break;
     }
     Done:
-    MPU401_WriteCommand(data);
     MPU401_WriteData(data);
     DirectWrite(data);
 }

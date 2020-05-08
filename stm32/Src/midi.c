@@ -106,25 +106,24 @@ volatile uint16_t MIDI_sysex_delaytime;
 
 static void PlayMsg(uint8_t* msg, uint16_t len)
 {
+    __disable_irq();
     // Enqueue data and start transmission if it is not already started
     ring_push(&midi_out_buff, (char*) msg, len);
     if (LL_USART_IsActiveFlag_TXE(USART2)) {
-        LL_USART_TransmitData8(USART2, ring_popb(&midi_out_buff));
+        uint8_t b = ring_popb(&midi_out_buff);
+        LL_USART_TransmitData8(USART2, b);
         LL_USART_EnableIT_TXE(USART2);
     }
+    __enable_irq();
 
 }
-
-uint32_t dbg = 0;
 
 static void send_midi_byte_now(uint8_t byte) {
     LL_USART_Enable(USART2);
     while (!LL_USART_IsActiveFlag_TXE(USART2)) {
-        dbg += 1;
     }
     LL_USART_TransmitData8(USART2, byte);
     while (!LL_USART_IsActiveFlag_TXE(USART2)){
-        dbg += 1;
     }
 }
 

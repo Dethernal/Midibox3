@@ -46,8 +46,6 @@ typedef struct {
     bool intelligent;
         uint8_t config;
         MpuMode mode;
-    uint8_t queue[MPU401_QUEUE];
-    uint8_t queue_pos,queue_used;
     struct track {
         int16_t counter;
         uint8_t value[8],sys_val;

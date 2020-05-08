@@ -36,28 +36,8 @@
 
 /*typedef void (*PIC_EventHandler)(uint16_t val);*/ /* SOFTMPU */
 
-static mpu_t mpu;
+static mpu_t mpu = {0};
 
-uint8_t QueueUsed() {
-	return mpu.queue_used;
-}
-
-static void QueueByte(uint8_t data) {
-	if (mpu.state.block_ack) {mpu.state.block_ack=false;return;}
-	if (mpu.queue_used==0 && mpu.intelligent) mpu.state.irq_pending=true;
-	if (mpu.queue_used<MPU401_QUEUE) {
-        uint8_t pos=mpu.queue_used+mpu.queue_pos;
-		if (mpu.queue_pos>=MPU401_QUEUE) mpu.queue_pos-=MPU401_QUEUE;
-		if (pos>=MPU401_QUEUE) pos-=MPU401_QUEUE;
-		mpu.queue_used++;
-		mpu.queue[pos]=data;
-	} /*else LOG(LOG_MISC,LOG_NORMAL)("MPU401:Data queue full");*/ /* SOFTMPU */
-}
-
-static void ClrQueue(void) {
-	mpu.queue_used=0;
-	mpu.queue_pos=0;
-}
 
 void MPU401_WriteCommand(uint8_t val) { /* SOFTMPU */
     uint8_t i; /* SOFTMPU */
@@ -91,13 +71,9 @@ void MPU401_WriteCommand(uint8_t val) { /* SOFTMPU */
 				mpu.state.playing=true;
 				PIC_RemoveEvents(MPU_EVENT);
                 PIC_AddEvent(MPU_EVENT,(uint16_t)MPU401_TIMECONSTANT/(mpu.clock.tempo*mpu.clock.timebase));
-				ClrQueue();
 				break;
 		}
-	}
-	else if (val>=0xa0 && val<=0xa7) {      /* Request play counter */
-        if (mpu.state.cmask&(1<<(val&7))) QueueByte((uint8_t)mpu.playbuf[val&7].counter);
-	}
+    }
 	else if (val>=0xd0 && val<=0xd7) {      /* Send data */
 		mpu.state.old_chan=mpu.state.channel;
 		mpu.state.channel=val&7;
@@ -152,33 +128,17 @@ void MPU401_WriteCommand(uint8_t val) { /* SOFTMPU */
 			break;
 		/* Commands 0xa# returning data */
 		case 0xab:      /* Request and clear recording counter */
-			QueueByte(MSG_MPU_ACK);
-			QueueByte(0);
 			return;
 		case 0xac:      /* Request version */
-                        if (CONFIG_VERSIONFIX)
-                        {
-                                /* SOFTMPU: Fix missing music in Gateway by reversing version and ACK */
-                                QueueByte(MPU401_VERSION);
-                                QueueByte(MSG_MPU_ACK);
-                        }
-                        else
-                        {
-                                QueueByte(MSG_MPU_ACK);
-                                QueueByte(MPU401_VERSION);
-                        }
 			return;
 		case 0xad:      /* Request revision */
-			QueueByte(MSG_MPU_ACK);
-			QueueByte(MPU401_REVISION);
+
 			return;
 		case 0xae:		/* HardMPU: Request config */
-			QueueByte(MSG_MPU_ACK);
-			QueueByte(mpu.config);
+
 			return;
 		case 0xaf:      /* Request tempo */
-			QueueByte(MSG_MPU_ACK);
-			QueueByte(mpu.clock.tempo);
+
 			return;
 		case 0xb1:      /* Reset relative tempo */
 			mpu.clock.tempo_rel=40;
@@ -218,17 +178,11 @@ void MPU401_WriteCommand(uint8_t val) { /* SOFTMPU */
 		default:
 			/*LOG(LOG_MISC,LOG_NORMAL)("MPU-401:Unhandled command %X",val);*/
 			break;
-	}
-	QueueByte(MSG_MPU_ACK);
+    }
 }
 
 uint8_t MPU401_ReadData(void) { /* SOFTMPU */
     uint8_t ret=MSG_MPU_ACK;	// HardMPU: we shouldn't be running this function if the queue is empty.
-	//if (mpu.queue_used) {
-		if (mpu.queue_pos>=MPU401_QUEUE) mpu.queue_pos-=MPU401_QUEUE;
-		ret=mpu.queue[mpu.queue_pos];
-		mpu.queue_pos++;mpu.queue_used--;
-	//}
 	if (!mpu.intelligent) return ret;
 
 	if (ret>=0xf0 && ret<=0xf7) { /* MIDI data request */
@@ -296,8 +250,7 @@ void MPU401_WriteData(uint8_t val) { /* SOFTMPU */
 		case 0xfe: /* Config byte */
 			mpu.state.command_byte=0;
 			mpu.config=val;
-			MPU401_Init();
-			QueueByte(MSG_MPU_ACK);
+            MPU401_Init();
 			return;
 		default:
 			mpu.state.command_byte=0;
@@ -532,8 +485,7 @@ void MPU401_EOIHandler(void) {
 	mpu.state.irq_pending=false;
 	if (!mpu.state.playing || !mpu.state.req_mask) return;
 	do {
-		if (mpu.state.req_mask&(1<<i)) {
-			QueueByte(0xf0+i);
+        if (mpu.state.req_mask&(1<<i)) {
 			mpu.state.req_mask&=~(1<<i);
 			break;
 		}
@@ -575,7 +527,6 @@ void MPU401_Reset(void) {
 	mpu.clock.clock_to_host=false;
 	mpu.clock.cth_rate=60;
 	mpu.clock.cth_counter=0;
-	ClrQueue();
 	mpu.state.req_mask=0;
 	mpu.condbuf.counter=0;
 	mpu.condbuf.type=T_OVERFLOW;
@@ -592,13 +543,11 @@ void MPU401_Init()
     MIDI_Init(CONFIG_SYSEXDELAY,CONFIG_FAKEALLNOTESOFF);
 	if (!MIDI_Available()) return;
 
-	mpu.queue_used=0;
-	mpu.queue_pos=0;
     mpu.mode=M_UART;
     mpu.intelligent=true; /* Default is on */
 
     if (!mpu.intelligent) return;
 
     /* SOFTMPU: Moved IRQ 9 handler init to asm */
-	MPU401_Reset();
+    MPU401_Reset();
 }

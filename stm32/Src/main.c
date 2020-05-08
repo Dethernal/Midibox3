@@ -170,6 +170,7 @@ int main(void)
     LL_TIM_EnableIT_UPDATE(TIM2);
     LL_TIM_EnableIT_UPDATE(TIM4);
 
+    LL_TIM_ClearFlag_TRIG(TIM2);
     LL_TIM_EnableCounter(TIM2);
 
     while(1);

@@ -121,5 +121,5 @@ static inline uint8_t change_volume(uint8_t volume) {
 void handle_midi_byte_in(uint8_t data);
 
 extern ring_buffer direct_buffer;
-
+extern uint8_t dbg_in[256];
 #endif // MIDI_IN_HANDLER_H
